@@ -1,6 +1,3 @@
-Here is a Python function that takes an image as input and adds zero-mean Gaussian white noise with a variance of 0.01:
-
-Copy code
 import cv2
 import numpy as np
 
