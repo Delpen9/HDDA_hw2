@@ -1,4 +1,5 @@
 import random
+import cv2
 import numpy as np
 
 def salt_and_pepper(
