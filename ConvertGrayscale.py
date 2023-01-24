@@ -1,4 +1,5 @@
 import cv2
+import numpy as np
 
 def convert2grayscale(
   image : np.ndarray
