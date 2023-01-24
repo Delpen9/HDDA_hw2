@@ -1,23 +1,14 @@
 ************* Module add_gaussian_noise
 problem1/add_gaussian_noise.py:1:0: C0114: Missing module docstring (missing-module-docstring)
-problem1/add_gaussian_noise.py:1:0: W0611: Unused import cv2 (unused-import)
 ************* Module denoise_using_geometric_mean
 problem1/denoise_using_geometric_mean.py:1:0: C0114: Missing module docstring (missing-module-docstring)
-problem1/denoise_using_geometric_mean.py:6:2: C0103: Argument name "m" doesn't conform to snake_case naming style (invalid-name)
-problem1/denoise_using_geometric_mean.py:7:2: C0103: Argument name "n" doesn't conform to snake_case naming style (invalid-name)
-problem1/denoise_using_geometric_mean.py:26:4: C0103: Variable name "H" doesn't conform to snake_case naming style (invalid-name)
-problem1/denoise_using_geometric_mean.py:26:7: C0103: Variable name "W" doesn't conform to snake_case naming style (invalid-name)
-problem1/denoise_using_geometric_mean.py:1:0: W0611: Unused import cv2 (unused-import)
 ************* Module salt_and_pepper_noise
 problem1/salt_and_pepper_noise.py:1:0: C0114: Missing module docstring (missing-module-docstring)
-problem1/salt_and_pepper_noise.py:2:0: W0611: Unused import cv2 (unused-import)
 ************* Module denoise_using_median_filter
 problem1/denoise_using_median_filter.py:1:0: C0114: Missing module docstring (missing-module-docstring)
-problem1/denoise_using_median_filter.py:6:2: C0103: Argument name "m" doesn't conform to snake_case naming style (invalid-name)
-problem1/denoise_using_median_filter.py:7:2: C0103: Argument name "n" doesn't conform to snake_case naming style (invalid-name)
 ************* Module denoise_using_gaussian_kernel
 problem1/denoise_using_gaussian_kernel.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 
 ------------------------------------------------------------------
-Your code has been rated at 7.54/10 (previous run: 4.39/10, +3.16)
+Your code has been rated at 9.12/10 (previous run: 8.77/10, +0.35)
 

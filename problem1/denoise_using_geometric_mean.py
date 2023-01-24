@@ -3,8 +3,8 @@ import numpy as np
 
 def geometric_mean_denoise(
   image : np.ndarray,
-  m : int = 3,
-  n : int = 3
+  _m : int = 3,
+  _n : int = 3
 ) -> np.ndarray:
     """
     geometric_mean_denoise()
@@ -12,26 +12,26 @@ def geometric_mean_denoise(
 
       Parameters:
       image (ndarray): The image to be denoised.
-      m (int): the number of rows in the filter mask
-      n (int): the number of columns in the filter mask
+      _m (int): the number of rows in the filter mask
+      _n (int): the number of columns in the filter mask
 
       Returns:
       ndarray: The denoised image.
     """
-    kernel = np.ones((m, n))
-    n = kernel.size
+    kernel = np.ones((_m, _n))
+    _n = kernel.size
 
     denoised_image = image.copy()
 
-    H, W = image.shape[:2]
+    _h, _w = image.shape[:2]
 
-    for i in range(m // 2, H - m // 2):
-        for j in range(n // 2, W - n // 2):
+    for i in range(_m // 2, _h - _m // 2):
+        for j in range(_n // 2, _w - _n // 2):
             pixels = image[
-              i - m // 2 : i + m // 2 + 1,
-              j - n // 2 : j + n // 2 + 1
+              i - _m // 2 : i + _m // 2 + 1,
+              j - _n // 2 : j + _n // 2 + 1
             ]
-            mean = np.power(np.prod(pixels), 1 / n)
+            mean = np.power(np.prod(pixels), 1 / _n)
 
             denoised_image[i][j] = mean
 
