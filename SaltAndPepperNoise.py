@@ -1,5 +1,5 @@
-import numpy as np
 import random
+import numpy as np
 
 def salt_and_pepper(
   image : np.ndarray,
