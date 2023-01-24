@@ -28,7 +28,7 @@ def mean_filter_denoise(
       Returns:
           np.ndarray: The denoised image.
     """
-    kernel = np.ones((_m, _n), np.float32) / (_m * _n)
+    kernel = np.ones((_m, _n)).astype(np.float32) / (_m * _n)
 
-    denoised = cv2.filter2D(image, -1, kernel)
-    return denoised
+    denoised_image = cv2.filter2D(image, -1, kernel)
+    return denoised_image
