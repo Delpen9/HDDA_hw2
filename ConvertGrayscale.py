@@ -1,6 +1,6 @@
 import cv2
 
-def convert2greyscale(
+def convert2grayscale(
   image : np.ndarray
 ):
   '''
