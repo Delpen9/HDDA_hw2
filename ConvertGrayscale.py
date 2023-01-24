@@ -2,7 +2,7 @@ import cv2
 
 def convert2grayscale(
   image : np.ndarray
-):
+) -> np.ndarray:
   '''
   convert2greyscale()
   '''
