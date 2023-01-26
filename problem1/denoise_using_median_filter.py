@@ -5,7 +5,7 @@ def median_denoise(
   image : np.ndarray,
   _m : int = 3,
   _n : int = 3
-):
+) -> np.ndarray:
     '''
     median_denoise()
     '''
