@@ -6,7 +6,7 @@ def contraharmonic_mean_filter(
     _q : int,
     _m : int = 3,
     _n : int = 3
-):
+) -> np.ndarray:
     """
     This function applies a Contraharmonic mean filter to an image using the openCV library.
 

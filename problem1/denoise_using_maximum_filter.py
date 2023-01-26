@@ -5,7 +5,7 @@ def maximum_filter(
     image : np.ndarray,
     _m : int = 3,
     _n : int = 3
-):
+) -> np.ndarray:
     """
     This function applies a maximum filter to an image using the openCV library.
 

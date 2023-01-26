@@ -5,7 +5,7 @@ def midpoint_denoise(
     image : np.ndarray,
     _m : int,
     _n : int
-):
+) -> np.ndarray:
     '''
     Applies a midpoint filter to denoise a colored image using the OpenCV library.
     
