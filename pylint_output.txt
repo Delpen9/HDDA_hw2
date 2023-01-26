@@ -4,13 +4,19 @@ problem1/add_gaussian_noise.py:1:0: C0114: Missing module docstring (missing-mod
 problem1/denoise_using_geometric_mean.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 ************* Module salt_and_pepper_noise
 problem1/salt_and_pepper_noise.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+************* Module denoise_using_minimum_filter
+problem1/denoise_using_minimum_filter.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 ************* Module denoise_using_harmonic_mean_filter
 problem1/denoise_using_harmonic_mean_filter.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 ************* Module denoise_using_median_filter
 problem1/denoise_using_median_filter.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 ************* Module denoise_using_gaussian_kernel
 problem1/denoise_using_gaussian_kernel.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+************* Module denoise_using_contraharmonic_mean_filter
+problem1/denoise_using_contraharmonic_mean_filter.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+************* Module denoise_using_maximum_filter
+problem1/denoise_using_maximum_filter.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.05/10 (previous run: 9.03/10, +0.02)
+Your code has been rated at 8.97/10 (previous run: 9.01/10, -0.05)
 
