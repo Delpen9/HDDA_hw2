@@ -1,11 +1,11 @@
 import cv2
 import numpy as np
 
-def get_gradient_magnitude_sobel(
+def get_gradient_magnitude_prewitt(
     image : np.ndarray
 ) -> np.ndarray:
     '''
-    Computes the gradient magnitude of an image using the Sobel operator.
+    Computes the gradient magnitude of an image using the Prewitt operator.
 
     Parameters:
         image (ndarray): the image to compute the gradient magnitude of
@@ -13,16 +13,25 @@ def get_gradient_magnitude_sobel(
     Returns:
         ndarray: the gradient magnitude of the image
     '''
-    sobelx = cv2.Sobel(image, cv2.CV_64F, 1, 0, ksize=3)
-    sobely = cv2.Sobel(image, cv2.CV_64F, 0, 1, ksize=3)
-
-    gradient_magnitude = np.sqrt(np.square(sobelx) + np.square(sobely))
+    prewittx = cv2.filter2D(image, -1, np.array([
+            [1, 1, 1],
+            [0, 0, 0],
+            [-1,-1,-1]
+        ])
+    )
+    prewitty = cv2.filter2D(image, -1, np.array([
+            [1, 0, -1],
+            [1, 0, -1],
+            [1, 0, -1]
+        ])
+    )
+    gradient_magnitude = np.sqrt(np.square(prewittx) + np.square(prewitty))
 
     gradient_magnitude = cv2.normalize(gradient_magnitude, None, 0, 255, cv2.NORM_MINMAX, cv2.CV_8U)
 
     return gradient_magnitude
 
-def threshold_gradient_sobel(
+def threshold_gradient_prewitt(
     image : np.ndarray,
     threshold : np.ndarray
 ) -> np.ndarray:
@@ -42,7 +51,7 @@ def threshold_gradient_sobel(
     _, thresholded_image = cv2.threshold(image, threshold, 255, cv2.THRESH_BINARY)
     return thresholded_image
 
-def sobel_edge_detection(
+def prewitt_edge_detection(
     image: np.ndarray,
     threshold : int = 150
 ) -> np.ndarray:
@@ -59,7 +68,7 @@ def sobel_edge_detection(
     assert threshold >= 0
     assert threshold <= 255
 
-    gradient_image = get_gradient_magnitude_sobel(image)
-    thresholded_gradient = threshold_gradient_sobel(gradient_image, threshold)
+    gradient_image = get_gradient_magnitude_prewitt(image)
+    thresholded_gradient = threshold_gradient_prewitt(gradient_image, threshold)
     return thresholded_gradient
     

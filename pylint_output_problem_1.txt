@@ -1,3 +1,7 @@
+************* Module denoise_using_midpoint_filter
+problem1/denoise_using_midpoint_filter.py:11:0: C0303: Trailing whitespace (trailing-whitespace)
+problem1/denoise_using_midpoint_filter.py:16:0: C0303: Trailing whitespace (trailing-whitespace)
+problem1/denoise_using_midpoint_filter.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 ************* Module add_gaussian_noise
 problem1/add_gaussian_noise.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 ************* Module denoise_using_geometric_mean
@@ -18,5 +22,5 @@ problem1/denoise_using_contraharmonic_mean_filter.py:1:0: C0114: Missing module 
 problem1/denoise_using_maximum_filter.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 
 ------------------------------------------------------------------
-Your code has been rated at 8.97/10 (previous run: 9.01/10, -0.05)
+Your code has been rated at 8.71/10 (previous run: 8.71/10, +0.00)
 
