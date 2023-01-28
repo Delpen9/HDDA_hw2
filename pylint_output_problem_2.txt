@@ -1,15 +1,19 @@
 ************* Module edge_detection_sobel
 problem2/edge_detection_sobel.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+************* Module edge_detection_laplacian
+problem2/edge_detection_laplacian.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 ************* Module edge_detection_prewitt
 problem2/edge_detection_prewitt.py:1:0: C0114: Missing module docstring (missing-module-docstring)
-problem2/edge_detection_prewitt.py:1:0: R0801: Similar lines in 2 files
+************* Module edge_detection_difference_of_gaussians
+problem2/edge_detection_difference_of_gaussians.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+problem2/edge_detection_difference_of_gaussians.py:1:0: R0801: Similar lines in 2 files
 ==edge_detection_prewitt:[29:70]
 ==edge_detection_sobel:[20:61]
     gradient_magnitude = cv2.normalize(gradient_magnitude, None, 0, 255, cv2.NORM_MINMAX, cv2.CV_8U)
 
     return gradient_magnitude
 
-def threshold_gradient_prewitt(
+def threshold_gradient_sobel(
     image : np.ndarray,
     threshold : np.ndarray
 ) -> np.ndarray:
@@ -29,7 +33,7 @@ def threshold_gradient_prewitt(
     _, thresholded_image = cv2.threshold(image, threshold, 255, cv2.THRESH_BINARY)
     return thresholded_image
 
-def prewitt_edge_detection(
+def sobel_edge_detection(
     image: np.ndarray,
     threshold : int = 150
 ) -> np.ndarray:
@@ -48,5 +52,5 @@ def prewitt_edge_detection(
  (duplicate-code)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.21/10 (previous run: 9.21/10, +0.00)
+Your code has been rated at 9.04/10 (previous run: 8.85/10, +0.19)
 
