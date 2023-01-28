@@ -7,11 +7,11 @@ def image_clustering(
 ) -> np.ndarray:
     '''
     Clusters a colored image into multiple clusters using k-means clustering.
-    
+
     Parameters:
     - colored_image (np.ndarray): The input colored image as a numpy array.
     - clusters (int): The number of clusters for the image.
-    
+
     Returns:
     - np.ndarray: The image with each pixel assigned to a cluster as a numpy array.
     '''

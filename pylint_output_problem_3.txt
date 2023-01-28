@@ -1,0 +1,10 @@
+************* Module k_means_clustering_of_image
+problem3/k_means_clustering_of_image.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+************* Module histogram_greyscale_image
+problem3/histogram_greyscale_image.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+************* Module optimal_threshold_using_otsu
+problem3/optimal_threshold_using_otsu.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+
+------------------------------------------------------------------
+Your code has been rated at 8.57/10 (previous run: 6.19/10, +2.38)
+
