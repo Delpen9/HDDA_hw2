@@ -19,6 +19,9 @@ def difference_of_gaussian_edge_detection(
     Returns:
     - difference_of_gaussian_image (np.ndarray): Difference of Gaussian image.
     '''
+    assert _k >= 1.0
+    assert gamma >= 1.0
+
     image_1 = cv2.GaussianBlur(image, (sigma, sigma), 0)
 
     sigma_2 = -_k * sigma
