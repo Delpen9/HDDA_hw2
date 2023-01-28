@@ -39,25 +39,28 @@ def display_output_image(
     epsilon : float = -0.1
 ) -> np.ndarray:
     '''
-    Display the output image after applying difference of gaussian edge detection and applying a non-linear transformation.
+    Display the output image after applying difference of gaussian
+    edge detection and applying a non-linear transformation.
 
     Parameters:
     - image (np.ndarray): The input image as a numpy array.
-    - sigma (float): The standard deviation of the Gaussian kernel used in the edge detection. 
-    - _k (float): The difference between the two standard deviations used in the edge detection. 
+    - sigma (float): The standard deviation of the Gaussian kernel used in the edge detection.
+    - _k (float): The difference between the two standard deviations used in the edge detection.
     - gamma (float): A constant value used in the edge detection.
     - phi (float): A constant value used in the non-linear transformation.
     - epsilon (float): A constant value used in the non-linear transformation.
-    
+
     Returns:
-    - T (np.ndarray): The output image after applying the edge detection and non-linear transformation.
+    - _t (np.ndarray): The output image after applying the
+    edge detection and non-linear transformation.
     '''
     difference_of_gaussian_image = difference_of_gaussian_edge_detection(image, sigma, _k, gamma)
 
-    condition = (image >= epsilon)
     _u = np.multiply(difference_of_gaussian_image, image)
 
-    T[condition] = 1
-    T[~condition] = 1 + np.tanh(phi * (_u[~condition] * epsilon))
+    condition = (_u >= epsilon)
 
-    return T
+    _t = np.ones(_u.shape)
+    _t[~condition] = 1 + np.tanh(phi * (_u[~condition] * epsilon))
+
+    return _t

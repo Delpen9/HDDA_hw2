@@ -52,5 +52,5 @@ def sobel_edge_detection(
  (duplicate-code)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.04/10 (previous run: 8.85/10, +0.19)
+Your code has been rated at 9.17/10 (previous run: 8.33/10, +0.83)
 
