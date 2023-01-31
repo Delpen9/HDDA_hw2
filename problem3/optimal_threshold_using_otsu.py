@@ -7,10 +7,12 @@ def find_optimal_otsu_threshold_then_perform(
     '''
     Finds the optimal threshold value using Otsu's method and applies it to the input image.
     The function returns the thresholded image and the optimal threshold value.
+
     Parameters:
     - image (np.ndarray): The input image as a numpy array.
+
     Returns:
-    - tuple: A tuple of thresholded image (np.ndarray) and optimal threshold value(int)
+    - tuple: A tuple of thresholded image (np.ndarray) and optimal threshold value (int).
     '''
     thresholded_image, otsu_threshold = cv2.threshold(
         image,
