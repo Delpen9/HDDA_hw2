@@ -1,15 +1,16 @@
 import cv2
 import matplotlib.pyplot as plt
+import numpy as np
 
 def plot_greyscale_histogram(
     image: np.ndarray
 ) -> None:
     '''
     Converts an image to greyscale and plots a histogram of the pixel intensities.
-    
+
     Parameters:
     - image (np.ndarray): The input image as a numpy array.
-    
+
     Returns:
     - None
     '''
