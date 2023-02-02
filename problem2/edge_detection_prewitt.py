@@ -13,19 +13,12 @@ def get_gradient_magnitude_prewitt(
     Returns:
         ndarray: the gradient magnitude of the image
     '''
-    prewittx = cv2.filter2D(image, -1, np.array([
-            [1, 1, 1],
-            [0, 0, 0],
-            [-1,-1,-1]
-        ])
-    )
-    prewitty = cv2.filter2D(image, -1, np.array([
-            [1, 0, -1],
-            [1, 0, -1],
-            [1, 0, -1]
-        ])
-    )
-    gradient_magnitude = np.sqrt(np.square(prewittx) + np.square(prewitty))
+    kernelx = np.array([[1, 1, 1], [0, 0, 0], [-1, -1, -1]])
+    kernely = np.array([[-1, 0, 1], [-1, 0, 1], [-1, 0, 1]])
+    prewittx = cv2.filter2D(image, -1, kernelx)
+    prewitty = cv2.filter2D(image, -1, kernely)
+
+    gradient_magnitude = np.sqrt(np.square(prewittx) + np.square(prewitty)).astype(np.uint8)
 
     gradient_magnitude = cv2.normalize(gradient_magnitude, None, 0, 255, cv2.NORM_MINMAX, cv2.CV_8U)
 
@@ -68,7 +61,9 @@ def prewitt_edge_detection(
     assert threshold >= 0
     assert threshold <= 255
 
-    gradient_image = get_gradient_magnitude_prewitt(image)
+    new_image = image.copy()
+
+    gradient_image = get_gradient_magnitude_prewitt(new_image)
     thresholded_gradient = threshold_gradient_prewitt(gradient_image, threshold)
     return thresholded_gradient
     

@@ -21,10 +21,12 @@ def difference_of_gaussian_edge_detection(
     '''
     assert _k >= 1.0
 
-    image_1 = cv2.GaussianBlur(image, (sigma, sigma), 0)
+    kernel_size = (3, 3)
+
+    image_1 = cv2.GaussianBlur(image, ksize = kernel_size, sigmaX = sigma, sigmaY = sigma)
 
     sigma_2 = -_k * sigma
-    image_2 = gamma * cv2.GaussianBlur(image, (sigma_2, sigma_2), 0)
+    image_2 = gamma * cv2.GaussianBlur(image, ksize = kernel_size, sigmaX = sigma_2, sigmaY = sigma_2)
 
     difference_of_gaussian_image = image_1 - image_2
 
