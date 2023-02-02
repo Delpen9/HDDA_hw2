@@ -3,8 +3,8 @@ import numpy as np
 
 def midpoint_denoise(
     image : np.ndarray,
-    _m : int,
-    _n : int
+    _m : int = 3,
+    _n : int = 3
 ) -> np.ndarray:
     '''
     Applies a midpoint filter to denoise a colored image using the OpenCV library.
@@ -17,6 +17,14 @@ def midpoint_denoise(
     Returns:
         ndarray: the denoised image
     '''
-    kernel = np.ones((_m, _n)).astype(int)
-    denoised_image = cv2.filter2D(image, -1, kernel)
+    new_image = image.copy()
+
+    size = (_m, _n)
+    shape = cv2.MORPH_RECT
+    kernel = cv2.getStructuringElement(shape, size)
+
+    max_image = cv2.dilate(new_image, kernel)
+    min_image = cv2.erode(new_image, kernel)
+
+    denoised_image = 0.5 * (max_image + min_image)
     return denoised_image

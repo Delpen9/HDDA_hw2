@@ -11,7 +11,7 @@ def contraharmonic_mean_filter(
     This function applies a Contraharmonic mean filter to an image using the openCV library.
 
     Parameters:
-        image (ndarray): The image which you want to apply the filter on.
+        new_image (ndarray): The new_image which you want to apply the filter on.
         _q (float): The order of the filter. It can be -1, 0, 1.
                     If _q = 0, it applies an arithmetic mean filter
                     If _q = -1, it applies a harmonic mean filter
@@ -22,21 +22,23 @@ def contraharmonic_mean_filter(
     Returns:
         denoised_image (ndarray): The filtered image
     """
+    new_image = image.copy()
+    
     kernel = np.ones((_m, _n))
 
     if _q == 0:
         kernel = kernel / (_m * _n)
-        denoised_image = cv2.filter2D(image, -1, kernel)
+        denoised_image = cv2.filter2D(new_image, -1, kernel)
 
     else:
-        denoised_image = np.zeros_like(image)
+        denoised_image = np.zeros_like(new_image)
 
-        for i in range(image.shape[2]):
+        for i in range(new_image.shape[2]):
             denoised_image[i] = (
                 np.power(
-                        np.sum(np.power(image[i], _q + 1)),
+                        np.sum(np.power(new_image[i], _q + 1)),
                         1 / (_q + 1)
-                    ) / np.sum(np.power(image[i], _q)
+                    ) / np.sum(np.power(new_image[i], _q)
                 )
             )
 

@@ -16,7 +16,9 @@ def harmonic_denoise(
       Returns:
           np.ndarray: The denoised image.
     """
+    new_image = image.copy()
+
     kernel = (_m * _n) * 1 / np.ones((_m, _n)).astype(np.float32)
 
-    denoised_image = cv2.filter2D(image, -1, kernel)
+    denoised_image = cv2.filter2D(new_image, -1, kernel)
     return denoised_image

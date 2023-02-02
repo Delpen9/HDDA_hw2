@@ -13,5 +13,7 @@ def convert2grayscale(
     '''
     convert2greyscale()
     '''
-    grayscale_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    new_image = image.copy()
+
+    grayscale_image = cv2.cvtColor(new_image, cv2.COLOR_BGR2GRAY)
     return grayscale_image

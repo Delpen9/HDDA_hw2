@@ -8,5 +8,7 @@ def median_denoise(
     '''
     median_denoise()
     '''
-    denoised_image = cv2.medianBlur(image, kernel_size)
+    new_image = image.copy()
+
+    denoised_image = cv2.medianBlur(new_image, kernel_size)
     return denoised_image

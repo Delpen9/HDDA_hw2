@@ -9,8 +9,10 @@ def add_gaussian_noise(
     '''
     add_gaussian_noise()
     '''
-    noise = np.random.normal(mean, variance, image.shape)
-    noisy_image = image + noise
+    new_image = image.copy()
+
+    noise = np.random.normal(mean, variance, new_image.shape)
+    noisy_image = new_image + noise
 
     noisy_image = np.clip(noisy_image, 0, 255)
     noisy_image = np.uint8(noisy_image)
