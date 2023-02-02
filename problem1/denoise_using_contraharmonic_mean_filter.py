@@ -32,13 +32,12 @@ def contraharmonic_mean_filter(
         denoised_image = np.zeros_like(image)
 
         for i in range(image.shape[2]):
-            for j in range(image.shape[3]):
-                denoised_image[i, j] = (
-                    np.power(
-                            np.sum(np.power(image[i, j], _q + 1)),
-                            1 / (_q + 1)
-                        ) / np.sum(np.power(image[i, j], _q)
-                    )
+            denoised_image[i] = (
+                np.power(
+                        np.sum(np.power(image[i], _q + 1)),
+                        1 / (_q + 1)
+                    ) / np.sum(np.power(image[i], _q)
                 )
+            )
 
     return denoised_image

@@ -13,7 +13,10 @@ from salt_and_pepper_noise import salt_and_pepper
 # De-noise
 from denoise_using_gaussian_kernel import gaussian_denoise
 from denoise_using_median_filter import median_denoise
-
+from denoise_using_mean_filter import mean_filter_denoise
+from denoise_using_geometric_mean import geometric_mean_denoise
+from denoise_using_harmonic_mean_filter import harmonic_denoise
+from denoise_using_contraharmonic_mean_filter import contraharmonic_mean_filter
 
 if __name__ == '__main__':
     file_path = os.path.abspath(__file__)
@@ -60,11 +63,75 @@ if __name__ == '__main__':
     cv2.imwrite(image_path, image_median_denoised_j2)
 
     # Part C.3
-    image_median_denoised_j1 = median_denoise(image_gaussian_noise)
-    image_median_denoised_j2 = median_denoise(image_salt_and_pepper_noise)
+    image_mean_filter_denoised_j1 = mean_filter_denoise(image_gaussian_noise)
+    image_mean_filter_denoised_j2 = mean_filter_denoise(image_salt_and_pepper_noise)
 
-    image_path = os.path.join(parent_directory, '..', 'output', 'p1_c_2_j1.jpg')
-    cv2.imwrite(image_path, image_median_denoised_j1)
+    image_path = os.path.join(parent_directory, '..', 'output', 'p1_c_3_j1.jpg')
+    cv2.imwrite(image_path, image_mean_filter_denoised_j1)
 
-    image_path = os.path.join(parent_directory, '..', 'output', 'p1_c_2_j2.jpg')
-    cv2.imwrite(image_path, image_median_denoised_j2)
+    image_path = os.path.join(parent_directory, '..', 'output', 'p1_c_3_j2.jpg')
+    cv2.imwrite(image_path, image_mean_filter_denoised_j2)
+
+    # Part C.4
+    ## TODO: Fix this
+    # image_geometric_mean_filter_denoised_j1 = geometric_mean_denoise(image_gaussian_noise)
+    # image_geometric_mean_filter_denoised_j2 = geometric_mean_denoise(image_salt_and_pepper_noise)
+
+    # image_path = os.path.join(parent_directory, '..', 'output', 'p1_c_4_j1.jpg')
+    # cv2.imwrite(image_path, image_geometric_mean_filter_denoised_j1)
+
+    # image_path = os.path.join(parent_directory, '..', 'output', 'p1_c_4_j2.jpg')
+    # cv2.imwrite(image_path, image_geometric_mean_filter_denoised_j2)
+
+    # Part C.5
+    ## TODO: Fix this
+    # image_harmonic_mean_filter_denoised_j1 = harmonic_denoise(image_gaussian_noise)
+    # image_harmonic_mean_filter_denoised_j2 = harmonic_denoise(image_salt_and_pepper_noise)
+
+    # image_path = os.path.join(parent_directory, '..', 'output', 'p1_c_5_j1.jpg')
+    # cv2.imwrite(image_path, image_harmonic_mean_filter_denoised_j1)
+
+    # image_path = os.path.join(parent_directory, '..', 'output', 'p1_c_5_j2.jpg')
+    # cv2.imwrite(image_path, image_harmonic_mean_filter_denoised_j2)
+
+    # Part C.6
+    # TODO: Fix this
+    # _q = -1
+    # image_contraharmonic_mean_filter_denoised_j1_q_neg_1 = contraharmonic_mean_filter(image_gaussian_noise, -1)
+    # image_contraharmonic_mean_filter_denoised_j2_q_neg_1 = contraharmonic_mean_filter(image_salt_and_pepper_noise, -1)
+
+    # image_path = os.path.join(parent_directory, '..', 'output', 'p1_c_6_j1_q_neg1.jpg')
+    # cv2.imwrite(image_path, image_contraharmonic_mean_filter_denoised_j1)
+
+    # image_path = os.path.join(parent_directory, '..', 'output', 'p1_c_6_j2_q_neg1.jpg')
+    # cv2.imwrite(image_path, image_contraharmonic_mean_filter_denoised_j2)
+
+    # # _q = 0
+    # image_contraharmonic_mean_filter_denoised_j1_q_0 = contraharmonic_mean_filter(image_gaussian_noise, 0)
+    # image_contraharmonic_mean_filter_denoised_j2_q_0 = contraharmonic_mean_filter(image_salt_and_pepper_noise, 0)
+
+    # image_path = os.path.join(parent_directory, '..', 'output', 'p1_c_6_j1_q_0.jpg')
+    # cv2.imwrite(image_path, image_contraharmonic_mean_filter_denoised_j1_q_0)
+
+    # image_path = os.path.join(parent_directory, '..', 'output', 'p1_c_6_j2_q_0.jpg')
+    # cv2.imwrite(image_path, image_contraharmonic_mean_filter_denoised_j2_q_0)
+
+    # # _q = 1
+    # image_contraharmonic_mean_filter_denoised_j1_q_1 = contraharmonic_mean_filter(image_gaussian_noise, 1)
+    # image_contraharmonic_mean_filter_denoised_j2_q_1 = contraharmonic_mean_filter(image_salt_and_pepper_noise, 1)
+
+    # image_path = os.path.join(parent_directory, '..', 'output', 'p1_c_6_j1_q_1.jpg')
+    # cv2.imwrite(image_path, image_contraharmonic_mean_filter_denoised_j1_q_1)
+
+    # image_path = os.path.join(parent_directory, '..', 'output', 'p1_c_6_j2_q_1.jpg')
+    # cv2.imwrite(image_path, image_contraharmonic_mean_filter_denoised_j2_q_1)
+
+    # Part C.7
+    image_mean_filter_denoised_j1 = mean_filter_denoise(image_gaussian_noise)
+    image_mean_filter_denoised_j2 = mean_filter_denoise(image_salt_and_pepper_noise)
+
+    image_path = os.path.join(parent_directory, '..', 'output', 'p1_c_7_j1.jpg')
+    cv2.imwrite(image_path, image_mean_filter_denoised_j1)
+
+    image_path = os.path.join(parent_directory, '..', 'output', 'p1_c_7_j2.jpg')
+    cv2.imwrite(image_path, image_mean_filter_denoised_j2)
