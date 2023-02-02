@@ -15,7 +15,7 @@ def salt_and_pepper(
         for j in range(image.shape[1]):
             rdn = random.random()
             if rdn < prob:
-                output[i][j] = (0, 0, 0)
+                output[i][j] = 0
             elif rdn > thres:
-                output[i][j] = (255, 255, 255)
+                output[i][j] = 255
     return output
