@@ -1,0 +1,1 @@
+The optimal threshold for the grayscale image determined by Otsu is: 143

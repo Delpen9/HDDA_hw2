@@ -10,6 +10,8 @@ from convert_to_grayscale import convert2grayscale
 from k_means_clustering_of_image import image_clustering
 from histogram_greyscale_image import plot_greyscale_histogram
 from optimal_threshold_using_otsu import find_optimal_otsu_threshold_then_perform
+from log_transform_image import log_transform_image
+from power_law_transform_image import power_law_transform
 
 if __name__ == '__main__':
     file_path = os.path.abspath(__file__)
@@ -61,7 +63,18 @@ if __name__ == '__main__':
     plot_greyscale_histogram(thresholded_image, 'p3_3_otsu_histogram.jpg')
 
     # Part 4
-    
+    logarithmic_image = log_transform_image(image_grayscale)
+
+    image_path = os.path.join(parent_directory, '..', 'output', 'problem3', 'p3_4_log_transform_image.jpg')
+    cv2.imwrite(image_path, logarithmic_image)
+    plot_greyscale_histogram(logarithmic_image, 'p3_4_log_transform_image_histogram.jpg')
 
 
+    # Part 5
+    # TODO: Fix this
+    # power_law_transform_image = power_law_transform(image_grayscale)
+
+    # image_path = os.path.join(parent_directory, '..', 'output', 'problem3', 'p3_5_power_law_transform_image.jpg')
+    # cv2.imwrite(image_path, power_law_transform_image)
+    # plot_greyscale_histogram(power_law_transform_image, 'p3_5_power_law_transform_image_histogram.jpg')
 
