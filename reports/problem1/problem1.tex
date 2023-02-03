@@ -7,7 +7,7 @@
 \usepackage{geometry}%
 \geometry{margin=0.7in}%
 \usepackage{ragged2e}%
-\usepackage{amsmath}%
+\usepackage{graphicx}%
 \usepackage{fancyhdr}%
 %
 \fancypagestyle{header}{%
@@ -45,15 +45,14 @@ Page \thepage\ of \pageref{LastPage}%
 \end{minipage}%
 \section{Section 1}%
 \label{sec:Section1}%
-Some regular text and some%
-\textit{italic text. }%
-\newline%
-Also some crazy characters: \$\&\#\{\}%
-\subsection{Math that is incorrect}%
-\label{subsec:Maththatisincorrect}%
-\[%
-2*3 = 9%
-\]
+Image converted to greyscale:%
+
+
+\begin{figure}[c]%
+\centering%
+\includegraphics[width=120px]{/com.docker.devenvironments.code/reports/problem1/../../output/problem1/p1_a_grayscale.jpg}%
+\caption{Greyscale dimensionally reduces the image and assigns weights to RGB values to created a weighted sum.}%
+\end{figure}
 
 %
 \end{document}

@@ -41,11 +41,14 @@ if __name__ == '__main__':
 
     doc = generate_header(doc, date.today())
 
+    file_path = os.path.abspath(__file__)
+    parent_directory = os.path.dirname(file_path)
+    image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem1', 'p1_a_grayscale.jpg')
+
     with doc.create(Section('Section 1')):
-        doc.append('Some regular text and some')
-        doc.append(italic('italic text. '))
-        doc.append('\nAlso some crazy characters: $&#{}')
-        with doc.create(Subsection('Math that is incorrect')):
-            doc.append(Math(data=['2*3', '=', 9]))
+        doc.append('Image converted to greyscale:')
+        with doc.create(Figure(position = 'c')) as first_figure:
+            first_figure.add_image(image_path, width = '120px')
+            first_figure.add_caption('Greyscale dimensionally reduces the image and assigns weights to RGB values to created a weighted sum.')
 
     doc.generate_pdf('problem1', clean_tex = False)
