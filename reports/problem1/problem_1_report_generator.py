@@ -36,7 +36,7 @@ def generate_header(
     return doc
 
 if __name__ == '__main__':
-    geometry_options = {'tmargin': '1cm', 'lmargin': '10cm'}
+    geometry_options = {'margin': '0.7in'}
     doc = Document(geometry_options = geometry_options)
 
     doc = generate_header(doc, date.today())
