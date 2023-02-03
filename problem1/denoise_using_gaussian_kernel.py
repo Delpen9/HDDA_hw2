@@ -9,6 +9,8 @@ def gaussian_denoise(
     '''
     gaussian_denoise()
     '''
+    new_image = image.copy()
+
     kernel = cv2.getGaussianKernel(kernel_size, standard_deviation)
-    denoised_image = cv2.sepFilter2D(image, -1, kernel, kernel)
+    denoised_image = cv2.sepFilter2D(new_image, -1, kernel, kernel)
     return denoised_image

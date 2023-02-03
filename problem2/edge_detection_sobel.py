@@ -59,7 +59,9 @@ def sobel_edge_detection(
     assert threshold >= 0
     assert threshold <= 255
 
-    gradient_image = get_gradient_magnitude_sobel(image)
+    new_image = image.copy()
+
+    gradient_image = get_gradient_magnitude_sobel(new_image)
     thresholded_gradient = threshold_gradient_sobel(gradient_image, threshold)
     return thresholded_gradient
     

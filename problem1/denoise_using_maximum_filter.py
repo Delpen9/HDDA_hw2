@@ -17,6 +17,10 @@ def maximum_filter(
     Returns:
         denoised_image (ndarray): The filtered image
     """
-    kernel = (_m, _n)
-    denoised_image = cv2.maxFilter(image, kernel_size = kernel)
+    new_image = image.copy()
+
+    size = (_m, _n)
+    shape = cv2.MORPH_RECT
+    kernel = cv2.getStructuringElement(shape, size)
+    denoised_image = cv2.dilate(new_image, kernel)
     return denoised_image

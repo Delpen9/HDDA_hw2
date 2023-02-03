@@ -3,11 +3,12 @@ import numpy as np
 
 def median_denoise(
   image : np.ndarray,
-  _m : int = 3,
-  _n : int = 3
+  kernel_size : int = 3
 ) -> np.ndarray:
     '''
     median_denoise()
     '''
-    denoised_image = cv2.medianBlur(image, (_m, _n))
+    new_image = image.copy()
+
+    denoised_image = cv2.medianBlur(new_image, kernel_size)
     return denoised_image
