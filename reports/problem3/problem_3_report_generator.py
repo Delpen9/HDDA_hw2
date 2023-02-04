@@ -1,68 +1,214 @@
 import numpy as np
-
-from pylatex import Document, Section, Subsection, Tabular, Math, TikZ, Axis, \
-    Plot, Figure, Matrix, Alignat
-from pylatex.utils import italic
 import os
+from datetime import date
+
+from pylatex import *
+from pylatex.utils import *
+
+def generate_header(
+    doc : any,
+    todays_date : str,
+    company : str = 'Georgia Institute of Technology'
+) -> any:
+    '''
+    '''
+    header = PageStyle('header')
+
+    with header.create(Head('L')):
+        header.append('Page date: ')
+        header.append(LineBreak())
+        header.append(todays_date)
+    
+    with header.create(Head('C')):
+        header.append(company)
+
+    with header.create(Head('R')):
+        header.append(simple_page_number())
+
+    doc.preamble.append(header)
+    doc.change_document_style('header')
+
+    with doc.create(MiniPage(align = 'c')):
+        doc.append(LargeText(bold('HW2: Problem 3')))
+        doc.append(LineBreak())
+        doc.append(MediumText(bold('Ian Dover')))
+
+    return doc
 
 if __name__ == '__main__':
-    image_filename = os.path.join(os.path.dirname(__file__), 'kitten.jpg')
+    geometry_options = {'margin': '0.7in'}
+    doc = Document(geometry_options = geometry_options)
 
-    geometry_options = {"tmargin": "1cm", "lmargin": "10cm"}
-    doc = Document(geometry_options=geometry_options)
+    doc = generate_header(doc, date.today())
 
-    with doc.create(Section('The simple stuff')):
-        doc.append('Some regular text and some')
-        doc.append(italic('italic text. '))
-        doc.append('\nAlso some crazy characters: $&#{}')
-        with doc.create(Subsection('Math that is incorrect')):
-            doc.append(Math(data=['2*3', '=', 9]))
+    file_path = os.path.abspath(__file__)
+    parent_directory = os.path.dirname(file_path)
 
-        with doc.create(Subsection('Table of something')):
-            with doc.create(Tabular('rc|cl')) as table:
-                table.add_hline()
-                table.add_row((1, 2, 3, 4))
-                table.add_hline(1, 2)
-                table.add_empty_row()
-                table.add_row((4, 5, 6, 7))
+    # Read and display the image
+    with doc.create(Section('Read and display the image:')):
+        doc.append('The rose on ice image:')
 
-    a = np.array([[100, 10, 20]]).T
-    M = np.matrix([[2, 3, 4],
-                   [0, 0, 1],
-                   [0, 0, 2]])
+        image_path = os.path.join(parent_directory, '..', '..', 'images', 'RoseonIce-1.jpg')
 
-    with doc.create(Section('The fancy stuff')):
-        with doc.create(Subsection('Correct matrix equations')):
-            doc.append(Math(data=[Matrix(M), Matrix(a), '=', Matrix(M * a)]))
+        with doc.create(Figure(position = 'h!')) as first_figure:
+            first_figure.add_image(image_path, width = '120px')
+            first_figure.add_caption('Rose on ice image.')
 
-        with doc.create(Subsection('Alignat math environment')):
-            with doc.create(Alignat(numbering=False, escape=False)) as agn:
-                agn.append(r'\frac{a}{b} &= 0 \\')
-                agn.extend([Matrix(M), Matrix(a), '&=', Matrix(M * a)])
+    # Part 1
+    with doc.create(Section('Part 1')):
+        # 2 Clusters
+        with doc.create(Subsection('K-means Clustering: 2 Clusters')):
+            doc.append('Image split into two clusters:')
 
-        with doc.create(Subsection('Beautiful graphs')):
-            with doc.create(TikZ()):
-                plot_options = 'height=4cm, width=6cm, grid=major'
-                with doc.create(Axis(options=plot_options)) as plot:
-                    plot.append(Plot(name='model', func='-x^5 - 242'))
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem3', 'p3_1_kmeans_2.jpg')
 
-                    coordinates = [
-                        (-4.77778, 2027.60977),
-                        (-3.55556, 347.84069),
-                        (-2.33333, 22.58953),
-                        (-1.11111, -493.50066),
-                        (0.11111, 46.66082),
-                        (1.33333, -205.56286),
-                        (2.55556, -341.40638),
-                        (3.77778, -1169.24780),
-                        (5.00000, -3269.56775),
-                    ]
+            with doc.create(Figure(position = 'h!')) as second_figure:
+                second_figure.add_image(image_path, width = '120px')
+                second_figure.add_caption('Image with K-means Clustering: 2 Clusters.')
 
-                    plot.append(Plot(name='estimate', coordinates=coordinates))
+        with doc.create(Subsection('K-means Clustering Histogram: 2 Clusters')):
+            doc.append('Histogram of the image split into two clusters:')
 
-        with doc.create(Subsection('Cute kitten pictures')):
-            with doc.create(Figure(position='h!')) as kitten_pic:
-                kitten_pic.add_image(image_filename, width='120px')
-                kitten_pic.add_caption('Look it\'s on its back')
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem3', 'p3_1_kmeans_2_histogram.jpg')
 
-    doc.generate_pdf('full', clean_tex=False)
+            with doc.create(Figure(position = 'h!')) as third_figure:
+                third_figure.add_image(image_path, width = '200px')
+                third_figure.add_caption('Histogram of image with K-means Clustering: 2 Clusters.')
+
+        doc.append(NewPage())
+
+        # 3 Clusters
+        with doc.create(Subsection('K-means Clustering: 3 Clusters')):
+            doc.append('Image split into three clusters:')
+
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem3', 'p3_1_kmeans_3.jpg')
+
+            with doc.create(Figure(position = 'h!')) as second_figure:
+                second_figure.add_image(image_path, width = '120px')
+                second_figure.add_caption('Image with K-means Clustering: 3 Clusters.')
+
+        with doc.create(Subsection('K-means Clustering Histogram: 3 Clusters')):
+            doc.append('Histogram of the image split into three clusters:')
+
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem3', 'p3_1_kmeans_3_histogram.jpg')
+
+            with doc.create(Figure(position = 'h!')) as third_figure:
+                third_figure.add_image(image_path, width = '200px')
+                third_figure.add_caption('Histogram of image with K-means Clustering: 3 Clusters.')
+
+        # 4 Clusters
+        with doc.create(Subsection('K-means Clustering: 4 Clusters')):
+            doc.append('Image split into four clusters:')
+
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem3', 'p3_1_kmeans_4.jpg')
+
+            with doc.create(Figure(position = 'h!')) as second_figure:
+                second_figure.add_image(image_path, width = '120px')
+                second_figure.add_caption('Image with K-means Clustering: 4 Clusters.')
+
+        doc.append(NewPage())
+
+        with doc.create(Subsection('K-means Clustering Histogram: 4 Clusters')):
+            doc.append('Histogram of the image split into four clusters:')
+
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem3', 'p3_1_kmeans_4_histogram.jpg')
+
+            with doc.create(Figure(position = 'h!')) as third_figure:
+                third_figure.add_image(image_path, width = '200px')
+                third_figure.add_caption('Histogram of image with K-means Clustering: 4 Clusters.')
+
+        # 5 Clusters
+        with doc.create(Subsection('K-means Clustering: 5 Clusters')):
+            doc.append('Image split into five clusters:')
+
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem3', 'p3_1_kmeans_5.jpg')
+
+            with doc.create(Figure(position = 'h!')) as second_figure:
+                second_figure.add_image(image_path, width = '120px')
+                second_figure.add_caption('Image with K-means Clustering: 5 Clusters.')
+
+        with doc.create(Subsection('K-means Clustering Histogram: 5 Clusters')):
+            doc.append('Histogram of the image split into five clusters:')
+
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem3', 'p3_1_kmeans_5_histogram.jpg')
+
+            with doc.create(Figure(position = 'h!')) as third_figure:
+                third_figure.add_image(image_path, width = '200px')
+                third_figure.add_caption('Histogram of image with K-means Clustering: 5 Clusters.')
+
+    # Part 2
+    with doc.create(Section('Part 2')):
+        with doc.create(Subsection('Convert the image into greyscale:')):
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem3', 'p3_2_grayscale.jpg')
+
+            with doc.create(Figure(position = 'h!')) as second_figure:
+                second_figure.add_image(image_path, width = '120px')
+                second_figure.add_caption('Convert the image into greyscale.')
+
+        with doc.create(Subsection('Plot the histogram:')):
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem3', 'p3_2_histogram.jpg')
+
+            with doc.create(Figure(position = 'h!')) as third_figure:
+                third_figure.add_image(image_path, width = '200px')
+                third_figure.add_caption('Histogram of greyscale image.')
+
+    # Part 3
+    with doc.create(Section('Part 3')):
+        with doc.create(Subsection('Image thresholded using Otsu\'s method.')):
+            text_path = os.path.join(parent_directory, '..', '..', 'output', 'problem3', 'p3_3_otsu_threshold.txt')
+
+            with open(text_path, 'r') as file:
+                optimal_otsu_threshold = file.read().rstrip()
+
+            doc.append(fr'{optimal_otsu_threshold}.')
+
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem3', 'p3_3_otsu_threshold_image.jpg')
+
+            with doc.create(Figure(position = 'h!')) as second_figure:
+                second_figure.add_image(image_path, width = '120px')
+                second_figure.add_caption('Image thresholded using Otsu\'s method.')
+
+        doc.append(NewPage())
+
+        with doc.create(Subsection('Plot the histogram of the image that underwent Otsu thresholding:')):
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem3', 'p3_3_otsu_histogram.jpg')
+
+            with doc.create(Figure(position = 'h!')) as third_figure:
+                third_figure.add_image(image_path, width = '200px')
+                third_figure.add_caption('Histogram of greyscale image.')
+
+    # Part 4
+    with doc.create(Section('Part 4')):
+        with doc.create(Subsection('Perform log transformation of the image:')):
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem3', 'p3_4_log_transform_image.jpg')
+
+            with doc.create(Figure(position = 'h!')) as second_figure:
+                second_figure.add_image(image_path, width = '120px')
+                second_figure.add_caption('Log transformed image.')
+
+        with doc.create(Subsection('Plot the histogram of the image that underwent log transformation:')):
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem3', 'p3_4_log_transform_image_histogram.jpg')
+
+            with doc.create(Figure(position = 'h!')) as third_figure:
+                third_figure.add_image(image_path, width = '200px')
+                third_figure.add_caption('Histogram of log transformed image.')
+
+    doc.append(NewPage())
+    
+    # Part 5
+    with doc.create(Section('Part 5')):
+        with doc.create(Subsection('Perform power law transformation of the image:')):
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem3', 'p3_5_power_law_transform_image.jpg')
+
+            with doc.create(Figure(position = 'h!')) as second_figure:
+                second_figure.add_image(image_path, width = '120px')
+                second_figure.add_caption('Power law transformed image.')
+
+        with doc.create(Subsection('Plot the histogram of the image that underwent power law transformation:')):
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem3', 'p3_5_power_law_transform_image_histogram.jpg')
+
+            with doc.create(Figure(position = 'h!')) as third_figure:
+                third_figure.add_image(image_path, width = '200px')
+                third_figure.add_caption('Histogram of power law transformed image.')
+
+    doc.generate_pdf('problem3', clean_tex = False)

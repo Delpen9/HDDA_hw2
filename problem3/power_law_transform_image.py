@@ -18,5 +18,7 @@ def power_law_transform(
     power_law_image (np.ndarray): The power law transformed image.
     '''
     power_law_image = _c * np.power(np.array(image, dtype = 'float') / 255, gamma)
-    power_law_image = np.uint8(power_law_image * 255)
+    power_law_image = np.uint8(
+        (power_law_image - np.min(power_law_image)) * (255 / np.max(power_law_image))
+    )
     return power_law_image

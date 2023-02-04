@@ -1,0 +1,286 @@
+\documentclass{article}%
+\usepackage[T1]{fontenc}%
+\usepackage[utf8]{inputenc}%
+\usepackage{lmodern}%
+\usepackage{textcomp}%
+\usepackage{lastpage}%
+\usepackage{geometry}%
+\geometry{margin=0.7in}%
+\usepackage{ragged2e}%
+\usepackage{graphicx}%
+\usepackage{fancyhdr}%
+%
+\fancypagestyle{header}{%
+\renewcommand{\headrulewidth}{0pt}%
+\renewcommand{\footrulewidth}{0pt}%
+\fancyhead{%
+}%
+\fancyfoot{%
+}%
+\fancyhead[L]{%
+Page date: %
+\linebreak%
+2023{-}02{-}04%
+}%
+\fancyhead[C]{%
+Georgia Institute of Technology%
+}%
+\fancyhead[R]{%
+Page \thepage\ of \pageref{LastPage}%
+}%
+}%
+%
+\begin{document}%
+\normalsize%
+\pagestyle{header}%
+\begin{minipage}{\textwidth}%
+\centering%
+\begin{Large}%
+\textbf{HW2: Problem 1}%
+\end{Large}%
+\linebreak%
+\begin{large}%
+\textbf{Ian Dover}%
+\end{large}%
+\end{minipage}%
+\section{Part A}%
+\label{sec:PartA}%
+Image converted to greyscale:%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=120px]{/com.docker.devenvironments.code/reports/problem1/../../output/problem1/p1_a_grayscale.jpg}%
+\caption{Greyscale image.}%
+\end{figure}
+
+%
+\section{Part B}%
+\label{sec:PartB}%
+\subsection{Subsection 1}%
+\label{subsec:Subsection1}%
+Image with zero{-}mean Gaussian white noise with variance of 0.01:%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=120px]{/com.docker.devenvironments.code/reports/problem1/../../output/problem1/p1_b_1_gaussian.jpg}%
+\caption{J1: Greyscale image with gaussian noise applied.}%
+\end{figure}
+
+%
+\subsection{Subsection 2}%
+\label{subsec:Subsection2}%
+Image with salt{-}and{-}pepper noise, affecting approximately 5\% of pixels:%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=120px]{/com.docker.devenvironments.code/reports/problem1/../../output/problem1/p1_b_2_salt_and_pepper.jpg}%
+\caption{J2: Greyscale image with salt{-}and{-}pepper noise applied.}%
+\end{figure}
+
+%
+\newpage%
+\section{Part C}%
+\label{sec:PartC}%
+\subsection{Gaussian De{-}noise: J1}%
+\label{subsec:GaussianDe{-}noiseJ1}%
+Images with gaussian filter denoise on J1:%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=120px]{/com.docker.devenvironments.code/reports/problem1/../../output/problem1/p1_c_1_j1.jpg}%
+\caption{Gaussian filter denoised J1.}%
+\end{figure}
+
+%
+\subsection{Gaussian De{-}noise: J2}%
+\label{subsec:GaussianDe{-}noiseJ2}%
+Images with gaussian filter denoise on J2:%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=120px]{/com.docker.devenvironments.code/reports/problem1/../../output/problem1/p1_c_1_j2.jpg}%
+\caption{Gaussian filter denoised J2.}%
+\end{figure}
+
+%
+\subsection{Median De{-}noise: J1}%
+\label{subsec:MedianDe{-}noiseJ1}%
+Images with median filter denoise on J1:%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=120px]{/com.docker.devenvironments.code/reports/problem1/../../output/problem1/p1_c_2_j1.jpg}%
+\caption{Median filter denoised J1.}%
+\end{figure}
+
+%
+\subsection{Median De{-}noise: J2}%
+\label{subsec:MedianDe{-}noiseJ2}%
+Images with median filter denoise on J2:%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=120px]{/com.docker.devenvironments.code/reports/problem1/../../output/problem1/p1_c_2_j2.jpg}%
+\caption{Median filter denoised J2.}%
+\end{figure}
+
+%
+\newpage%
+\subsection{Arithematic Mean De{-}noise: J1}%
+\label{subsec:ArithematicMeanDe{-}noiseJ1}%
+Images with arithematic mean filter denoise on J1:%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=120px]{/com.docker.devenvironments.code/reports/problem1/../../output/problem1/p1_c_3_j1.jpg}%
+\caption{Arithematic mean filter denoised J1.}%
+\end{figure}
+
+%
+\subsection{Arithematic Mean De{-}noise: J2}%
+\label{subsec:ArithematicMeanDe{-}noiseJ2}%
+Images with arithematic mean filter denoise on J2:%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=120px]{/com.docker.devenvironments.code/reports/problem1/../../output/problem1/p1_c_3_j2.jpg}%
+\caption{Arithematic mean filter denoised J2.}%
+\end{figure}
+
+%
+\subsection{Geometric Mean De{-}noise: J1}%
+\label{subsec:GeometricMeanDe{-}noiseJ1}%
+Images with geometric mean filter denoise on J1:%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=120px]{/com.docker.devenvironments.code/reports/problem1/../../output/problem1/p1_c_4_j1.jpg}%
+\caption{Geometric mean filter denoised J1.}%
+\end{figure}
+
+%
+\subsection{Geometric Mean De{-}noise: J2}%
+\label{subsec:GeometricMeanDe{-}noiseJ2}%
+Images with geometric mean filter denoise on J2:%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=120px]{/com.docker.devenvironments.code/reports/problem1/../../output/problem1/p1_c_4_j2.jpg}%
+\caption{Geometric mean filter denoised J2.}%
+\end{figure}
+
+%
+\subsection{Harmonic Mean De{-}noise: J1}%
+\label{subsec:HarmonicMeanDe{-}noiseJ1}%
+Images with harmonic mean filter denoise on J1:%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=120px]{/com.docker.devenvironments.code/reports/problem1/../../output/problem1/p1_c_5_j1.jpg}%
+\caption{Harmonic mean filter denoised J1.}%
+\end{figure}
+
+%
+\subsection{Harmonic Mean De{-}noise: J2}%
+\label{subsec:HarmonicMeanDe{-}noiseJ2}%
+Images with harmonic mean filter denoise on J2:%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=120px]{/com.docker.devenvironments.code/reports/problem1/../../output/problem1/p1_c_5_j2.jpg}%
+\caption{Harmonic mean filter denoised J2.}%
+\end{figure}
+
+%
+\subsection{Minimum De{-}noise: J1}%
+\label{subsec:MinimumDe{-}noiseJ1}%
+Images with minimum filter denoise on J1:%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=120px]{/com.docker.devenvironments.code/reports/problem1/../../output/problem1/p1_c_7_j1.jpg}%
+\caption{Minimum filter denoised J1.}%
+\end{figure}
+
+%
+\subsection{Minimum De{-}noise: J2}%
+\label{subsec:MinimumDe{-}noiseJ2}%
+Images with minimum filter denoise on J2:%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=120px]{/com.docker.devenvironments.code/reports/problem1/../../output/problem1/p1_c_7_j2.jpg}%
+\caption{Minimum filter denoised J2.}%
+\end{figure}
+
+%
+\newpage%
+\subsection{Maximum De{-}noise: J1}%
+\label{subsec:MaximumDe{-}noiseJ1}%
+Images with maximum filter denoise on J1:%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=120px]{/com.docker.devenvironments.code/reports/problem1/../../output/problem1/p1_c_8_j1.jpg}%
+\caption{Maximum filter denoised J1.}%
+\end{figure}
+
+%
+\subsection{Maximum De{-}noise: J2}%
+\label{subsec:MaximumDe{-}noiseJ2}%
+Images with maximum filter denoise on J2:%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=120px]{/com.docker.devenvironments.code/reports/problem1/../../output/problem1/p1_c_8_j2.jpg}%
+\caption{Maximum filter denoised J2.}%
+\end{figure}
+
+%
+\subsection{Mid{-}point De{-}noise: J1}%
+\label{subsec:Mid{-}pointDe{-}noiseJ1}%
+Images with mid{-}point filter denoise on J1:%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=120px]{/com.docker.devenvironments.code/reports/problem1/../../output/problem1/p1_c_8_j1.jpg}%
+\caption{Mid{-}point filter denoised J1.}%
+\end{figure}
+
+%
+\subsection{Mid{-}point De{-}noise: J2}%
+\label{subsec:Mid{-}pointDe{-}noiseJ2}%
+Images with mid{-}point filter denoise on J2:%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=120px]{/com.docker.devenvironments.code/reports/problem1/../../output/problem1/p1_c_8_j2.jpg}%
+\caption{Mid{-}point filter denoised J2.}%
+\end{figure}
+
+%
+\section{Part D}%
+\label{sec:PartD}%
+What denoising technique do you recommend for removing Gaussian noise? What denoising technique do you recommend for removing salt{-}and{-}pepper noise?
+
+%
+\end{document}
