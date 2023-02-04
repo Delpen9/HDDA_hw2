@@ -75,19 +75,21 @@ if __name__ == '__main__':
     # Part C
     with doc.create(Section('Part C')):
         with doc.create(Subsection('Subsection 1')):
-            doc.append('Images with gaussian filter denoise:')
+            with doc.create(Subsection('J1')):
+                doc.append('Images with gaussian filter denoise:')
 
-            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem1', 'p1_c_1_j1.jpg')
+                image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem1', 'p1_c_1_j1.jpg')
 
-            with doc.create(Figure(position = 'h!')) as fourth_figure:
-                fourth_figure.add_image(image_path, width = '120px')
-                fourth_figure.add_caption('Gaussian filter denoised J1.')
+                with doc.create(Figure(position = 'h!')) as fourth_figure:
+                    fourth_figure.add_image(image_path, width = '120px')
+                    fourth_figure.add_caption('Gaussian filter denoised J1.')
 
-            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem1', 'p1_c_1_j2.jpg')
+            with doc.create(Subsection('J2')):
+                image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem1', 'p1_c_1_j2.jpg')
 
-            with doc.create(Figure(position = 'h!')) as fourth_figure:
-                fourth_figure.add_image(image_path, width = '120px')
-                fourth_figure.add_caption('Gaussian filter denoised J2.')
+                with doc.create(Figure(position = 'h!')) as fourth_figure:
+                    fourth_figure.add_image(image_path, width = '120px')
+                    fourth_figure.add_caption('Gaussian filter denoised J2.')
 
 
     doc.generate_pdf('problem1', clean_tex = False)
