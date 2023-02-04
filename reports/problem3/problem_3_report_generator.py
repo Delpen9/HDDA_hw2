@@ -193,6 +193,8 @@ if __name__ == '__main__':
                 third_figure.add_image(image_path, width = '200px')
                 third_figure.add_caption('Histogram of log transformed image.')
 
+    doc.append(NewPage())
+    
     # Part 5
     with doc.create(Section('Part 5')):
         with doc.create(Subsection('Perform power law transformation of the image:')):
