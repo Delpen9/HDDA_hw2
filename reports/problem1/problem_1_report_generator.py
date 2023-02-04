@@ -137,6 +137,23 @@ if __name__ == '__main__':
                 fifth_figure.add_image(image_path, width = '120px')
                 fifth_figure.add_caption('Arithematic mean filter denoised J2.')
 
+        # Geometric Mean
+        with doc.create(Subsection('Geometric Mean De-noise: J1')):
+            doc.append('Images with geometric mean filter denoise on J1:')
 
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem1', 'p1_c_4_j1.jpg')
+
+            with doc.create(Figure(position = 'h!')) as fourth_figure:
+                fourth_figure.add_image(image_path, width = '120px')
+                fourth_figure.add_caption('Geometric mean filter denoised J1.')
+
+        with doc.create(Subsection('Geometric Mean De-noise: J2')):
+            doc.append('Images with geometric mean filter denoise on J2:')
+
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem1', 'p1_c_4_j2.jpg')
+
+            with doc.create(Figure(position = 'h!')) as fifth_figure:
+                fifth_figure.add_image(image_path, width = '120px')
+                fifth_figure.add_caption('Geometric mean filter denoised J2.')
 
     doc.generate_pdf('problem1', clean_tex = False)
