@@ -213,6 +213,8 @@ if __name__ == '__main__':
                 seventeenth_figure.add_image(image_path, width = '120px')
                 seventeenth_figure.add_caption('Minimum filter denoised J2.')
 
+        doc.append(NewPage())
+        
         # Maximum
         with doc.create(Subsection('Maximum De-noise: J1')):
             doc.append('Images with maximum filter denoise on J1:')
