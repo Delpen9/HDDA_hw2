@@ -1,0 +1,84 @@
+\documentclass{article}%
+\usepackage[T1]{fontenc}%
+\usepackage[utf8]{inputenc}%
+\usepackage{lmodern}%
+\usepackage{textcomp}%
+\usepackage{lastpage}%
+\usepackage{geometry}%
+\geometry{margin=0.7in}%
+\usepackage{ragged2e}%
+\usepackage{graphicx}%
+\usepackage{fancyhdr}%
+%
+\fancypagestyle{header}{%
+\renewcommand{\headrulewidth}{0pt}%
+\renewcommand{\footrulewidth}{0pt}%
+\fancyhead{%
+}%
+\fancyfoot{%
+}%
+\fancyhead[L]{%
+Page date: %
+\linebreak%
+2023{-}02{-}04%
+}%
+\fancyhead[C]{%
+Georgia Institute of Technology%
+}%
+\fancyhead[R]{%
+Page \thepage\ of \pageref{LastPage}%
+}%
+}%
+%
+\begin{document}%
+\normalsize%
+\pagestyle{header}%
+\begin{minipage}{\textwidth}%
+\centering%
+\begin{Large}%
+\textbf{HW2: Problem 3}%
+\end{Large}%
+\linebreak%
+\begin{large}%
+\textbf{Ian Dover}%
+\end{large}%
+\end{minipage}%
+\section{Read and display the image:}%
+\label{sec:Readanddisplaytheimage}%
+The rose on ice image:%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=120px]{/com.docker.devenvironments.code/reports/problem3/../../images/RoseonIce-1.jpg}%
+\caption{Rose on ice image.}%
+\end{figure}
+
+%
+\section{Part 1}%
+\label{sec:Part1}%
+\subsection{K{-}means Clustering: 2 Clusters}%
+\label{subsec:K{-}meansClustering2Clusters}%
+Image split into two clusters:%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=120px]{/com.docker.devenvironments.code/reports/problem3/../../output/problem3/p3_1_kmeans_2.jpg}%
+\caption{Image with K{-}means Clustering: 2 Clusters.}%
+\end{figure}
+
+%
+\subsection{K{-}means Clustering Histogram: 2 Clusters}%
+\label{subsec:K{-}meansClusteringHistogram2Clusters}%
+Histogram of the image split into two clusters:%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=120px]{/com.docker.devenvironments.code/reports/problem3/../../output/problem3/p3_1_kmeans_2_histogram.jpg}%
+\caption{Histogram of Image with K{-}means Clustering: 2 Clusters.}%
+\end{figure}
+
+%
+\end{document}

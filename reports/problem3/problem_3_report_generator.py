@@ -74,4 +74,4 @@ if __name__ == '__main__':
                 third_figure.add_image(image_path, width = '120px')
                 third_figure.add_caption('Histogram of Image with K-means Clustering: 2 Clusters.')
 
-    doc.append(NewPage())
+    doc.generate_pdf('problem1', clean_tex = False)
