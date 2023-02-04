@@ -134,8 +134,6 @@ if __name__ == '__main__':
                 ninth_figure.add_image(image_path, width = '120px')
                 ninth_figure.add_caption('Prewitt threshold of 50.')
 
-        doc.append(NewPage())
-
         with doc.create(Subsection('Prewitt Threshold: 100')):
             doc.append('Use the prewitt operator on the image with a threshold of 100:')
 
@@ -145,6 +143,8 @@ if __name__ == '__main__':
                 tenth_figure.add_image(image_path, width = '120px')
                 tenth_figure.add_caption('Prewitt threshold of 100.')
 
+        doc.append(NewPage())
+        
         with doc.create(Subsection('Prewitt Threshold: 150')):
             doc.append('Use the prewitt operator on the image with a threshold of 150:')
 
