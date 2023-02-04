@@ -69,7 +69,6 @@ if __name__ == '__main__':
     cv2.imwrite(image_path, logarithmic_image)
     plot_greyscale_histogram(logarithmic_image, 'p3_4_log_transform_image_histogram.jpg')
 
-
     # Part 5
     # TODO: Fix this
     power_law_transform_image = power_law_transform(image_grayscale)
