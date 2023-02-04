@@ -124,18 +124,18 @@ if __name__ == '__main__':
 
             image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem1', 'p1_c_3_j1.jpg')
 
-            with doc.create(Figure(position = 'h!')) as fourth_figure:
-                fourth_figure.add_image(image_path, width = '120px')
-                fourth_figure.add_caption('Arithematic mean filter denoised J1.')
+            with doc.create(Figure(position = 'h!')) as eigth_figure:
+                eigth_figure.add_image(image_path, width = '120px')
+                eigth_figure.add_caption('Arithematic mean filter denoised J1.')
 
         with doc.create(Subsection('Arithematic Mean De-noise: J2')):
             doc.append('Images with arithematic mean filter denoise on J2:')
 
             image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem1', 'p1_c_3_j2.jpg')
 
-            with doc.create(Figure(position = 'h!')) as fifth_figure:
-                fifth_figure.add_image(image_path, width = '120px')
-                fifth_figure.add_caption('Arithematic mean filter denoised J2.')
+            with doc.create(Figure(position = 'h!')) as ninth_figure:
+                ninth_figure.add_image(image_path, width = '120px')
+                ninth_figure.add_caption('Arithematic mean filter denoised J2.')
 
         # Geometric Mean
         with doc.create(Subsection('Geometric Mean De-noise: J1')):
@@ -143,17 +143,36 @@ if __name__ == '__main__':
 
             image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem1', 'p1_c_4_j1.jpg')
 
-            with doc.create(Figure(position = 'h!')) as fourth_figure:
-                fourth_figure.add_image(image_path, width = '120px')
-                fourth_figure.add_caption('Geometric mean filter denoised J1.')
+            with doc.create(Figure(position = 'h!')) as tenth_figure:
+                tenth_figure.add_image(image_path, width = '120px')
+                tenth_figure.add_caption('Geometric mean filter denoised J1.')
 
         with doc.create(Subsection('Geometric Mean De-noise: J2')):
             doc.append('Images with geometric mean filter denoise on J2:')
 
             image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem1', 'p1_c_4_j2.jpg')
 
-            with doc.create(Figure(position = 'h!')) as fifth_figure:
-                fifth_figure.add_image(image_path, width = '120px')
-                fifth_figure.add_caption('Geometric mean filter denoised J2.')
+            with doc.create(Figure(position = 'h!')) as eleventh_figure:
+                eleventh_figure.add_image(image_path, width = '120px')
+                eleventh_figure.add_caption('Geometric mean filter denoised J2.')
+
+        # Harmonic Mean
+        with doc.create(Subsection('Harmonic Mean De-noise: J1')):
+            doc.append('Images with harmonic mean filter denoise on J1:')
+
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem1', 'p1_c_5_j1.jpg')
+
+            with doc.create(Figure(position = 'h!')) as twelth_figure:
+                twelth_figure.add_image(image_path, width = '120px')
+                twelth_figure.add_caption('Harmonic mean filter denoised J1.')
+
+        with doc.create(Subsection('Harmonic Mean De-noise: J2')):
+            doc.append('Images with harmonic mean filter denoise on J2:')
+
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem1', 'p1_c_5_j2.jpg')
+
+            with doc.create(Figure(position = 'h!')) as thirteenth_figure:
+                thirteenth_figure.add_image(image_path, width = '120px')
+                thirteenth_figure.add_caption('Harmonic mean filter denoised J2.')
 
     doc.generate_pdf('problem1', clean_tex = False)
