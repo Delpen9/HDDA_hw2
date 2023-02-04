@@ -49,6 +49,7 @@ if __name__ == '__main__':
         doc.append('Image converted to greyscale:')
         with doc.create(Figure(position = 'h!')) as first_figure:
             first_figure.add_image(image_path, width = '120px')
-            first_figure.add_caption('Greyscale dimensionally reduces the image and assigns weights to RGB values to created a weighted sum.')
+            first_figure.add_caption('''Greyscale dimensionally reduces the image and assigns
+            weights to RGB values to created a weighted average.''')
 
     doc.generate_pdf('problem1', clean_tex = False)
