@@ -74,6 +74,8 @@ if __name__ == '__main__':
                 third_figure.add_image(image_path, width = '120px')
                 third_figure.add_caption('Sobel threshold of 50.')
 
+        doc.append(NewPage())
+
         with doc.create(Subsection('Sobel Threshold: 100')):
             doc.append('Use the sobel operator on the image with a threshold of 100:')
 
@@ -109,7 +111,5 @@ if __name__ == '__main__':
             with doc.create(Figure(position = 'h!')) as seventh_figure:
                 seventh_figure.add_image(image_path, width = '120px')
                 seventh_figure.add_caption('Sobel threshold of 255.')
-
-    # doc.append(NewPage())
 
     doc.generate_pdf('problem2', clean_tex = False)
