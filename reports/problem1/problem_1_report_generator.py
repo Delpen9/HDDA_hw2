@@ -175,4 +175,42 @@ if __name__ == '__main__':
                 thirteenth_figure.add_image(image_path, width = '120px')
                 thirteenth_figure.add_caption('Harmonic mean filter denoised J2.')
 
+        # Contraharmonic Mean
+        # with doc.create(Subsection('Contraharmonic Mean De-noise: J1')):
+        #     doc.append('Images with contraharmonic mean filter denoise on J1:')
+
+        #     image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem1', 'p1_c_6_j1.jpg')
+
+        #     with doc.create(Figure(position = 'h!')) as fourteenth_figure:
+        #         fourteenth_figure.add_image(image_path, width = '120px')
+        #         fourteenth_figure.add_caption('Contraharmonic mean filter denoised J1.')
+
+        # with doc.create(Subsection('Contraharmonic Mean De-noise: J2')):
+        #     doc.append('Images with contraharmonic mean filter denoise on J2:')
+
+        #     image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem1', 'p1_c_6_j2.jpg')
+
+        #     with doc.create(Figure(position = 'h!')) as fifteenth_figure:
+        #         fifteenth_figure.add_image(image_path, width = '120px')
+        #         fifteenth_figure.add_caption('Contraharmonic mean filter denoised J2.')
+
+        # Minimum
+        with doc.create(Subsection('Minimum De-noise: J1')):
+            doc.append('Images with minimum filter denoise on J1:')
+
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem1', 'p1_c_7_j1.jpg')
+
+            with doc.create(Figure(position = 'h!')) as sixteenth_figure:
+                sixteenth_figure.add_image(image_path, width = '120px')
+                sixteenth_figure.add_caption('Minimum filter denoised J1.')
+
+        with doc.create(Subsection('Minimum De-noise: J2')):
+            doc.append('Images with minimum filter denoise on J2:')
+
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem1', 'p1_c_7_j2.jpg')
+
+            with doc.create(Figure(position = 'h!')) as seventeenth_figure:
+                seventeenth_figure.add_image(image_path, width = '120px')
+                seventeenth_figure.add_caption('Minimum filter denoised J2.')
+
     doc.generate_pdf('problem1', clean_tex = False)
