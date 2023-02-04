@@ -255,6 +255,6 @@ if __name__ == '__main__':
 
     # Part D
     with doc.create(Section('Part D')):
-        doc.append('What denoising technique do you recommend for removing Gaussian noise? What denoising technique do you recommend for removing salt-and-pepper noise?')
+        doc.append('What denoising technique do you recommend for removing gaussian noise? What denoising technique do you recommend for removing salt-and-pepper noise?')
 
     doc.generate_pdf('problem1', clean_tex = False)
