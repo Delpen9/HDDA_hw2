@@ -177,4 +177,20 @@ if __name__ == '__main__':
                 third_figure.add_image(image_path, width = '200px')
                 third_figure.add_caption('Histogram of greyscale image.')
 
+    # Part 4
+    with doc.create(Section('Part 4')):
+        with doc.create(Subsection('Perform log transformation of the image:')):
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem3', 'p3_4_log_transform_image.jpg')
+
+            with doc.create(Figure(position = 'h!')) as second_figure:
+                second_figure.add_image(image_path, width = '120px')
+                second_figure.add_caption('Log transformed image.')
+
+        with doc.create(Subsection('Plot the histogram of the image that underwent log transformation:')):
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem3', 'p3_4_log_transform_image_histogram.jpg')
+
+            with doc.create(Figure(position = 'h!')) as third_figure:
+                third_figure.add_image(image_path, width = '200px')
+                third_figure.add_caption('Histogram of log transformed image.')
+
     doc.generate_pdf('problem3', clean_tex = False)
