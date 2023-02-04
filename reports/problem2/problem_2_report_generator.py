@@ -54,7 +54,7 @@ if __name__ == '__main__':
             first_figure.add_image(image_path, width = '120px')
             first_figure.add_caption('Greyscale image.')
 
-    # Part B
+    # Part 1
     with doc.create(Section('Part 1')):
         with doc.create(Subsection('Sobel Threshold: 10')):
             doc.append('Use the sobel operator on the image with a threshold of 10:')
@@ -111,5 +111,67 @@ if __name__ == '__main__':
             with doc.create(Figure(position = 'h!')) as seventh_figure:
                 seventh_figure.add_image(image_path, width = '120px')
                 seventh_figure.add_caption('Sobel threshold of 255.')
+
+        doc.append(NewPage())
+
+    # Part 2
+    with doc.create(Section('Part 2')):
+        with doc.create(Subsection('Prewitt Threshold: 10')):
+            doc.append('Use the prewitt operator on the image with a threshold of 10:')
+
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem2', 'p2_part_2_prewitt_thresh_10.jpg')
+
+            with doc.create(Figure(position = 'h!')) as eigth_figure:
+                eigth_figure.add_image(image_path, width = '120px')
+                eigth_figure.add_caption('Prewitt threshold of 10.')
+
+        with doc.create(Subsection('Prewitt Threshold: 50')):
+            doc.append('Use the prewitt operator on the image with a threshold of 50:')
+
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem2', 'p2_part_2_prewitt_thresh_50.jpg')
+
+            with doc.create(Figure(position = 'h!')) as ninth_figure:
+                ninth_figure.add_image(image_path, width = '120px')
+                ninth_figure.add_caption('Prewitt threshold of 50.')
+
+        doc.append(NewPage())
+
+        with doc.create(Subsection('Prewitt Threshold: 100')):
+            doc.append('Use the prewitt operator on the image with a threshold of 100:')
+
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem2', 'p2_part_2_prewitt_thresh_100.jpg')
+
+            with doc.create(Figure(position = 'h!')) as tenth_figure:
+                tenth_figure.add_image(image_path, width = '120px')
+                tenth_figure.add_caption('Prewitt threshold of 100.')
+
+        with doc.create(Subsection('Prewitt Threshold: 150')):
+            doc.append('Use the prewitt operator on the image with a threshold of 150:')
+
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem2', 'p2_part_2_prewitt_thresh_150.jpg')
+
+            with doc.create(Figure(position = 'h!')) as eleventh_figure:
+                eleventh_figure.add_image(image_path, width = '120px')
+                eleventh_figure.add_caption('Prewitt threshold of 150.')
+
+        with doc.create(Subsection('Prewitt Threshold: 200')):
+            doc.append('Use the prewitt operator on the image with a threshold of 200:')
+
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem2', 'p2_part_2_prewitt_thresh_200.jpg')
+
+            with doc.create(Figure(position = 'h!')) as twelth_figure:
+                twelth_figure.add_image(image_path, width = '120px')
+                twelth_figure.add_caption('Prewitt threshold of 200.')
+
+        with doc.create(Subsection('Prewitt Threshold: 255')):
+            doc.append('Use the prewitt operator on the image with a threshold of 255:')
+
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem2', 'p2_part_2_prewitt_thresh_255.jpg')
+
+            with doc.create(Figure(position = 'h!')) as thirteenth_figure:
+                thirteenth_figure.add_image(image_path, width = '120px')
+                thirteenth_figure.add_caption('Prewitt threshold of 255.')
+
+        doc.append(NewPage())
 
     doc.generate_pdf('problem2', clean_tex = False)
