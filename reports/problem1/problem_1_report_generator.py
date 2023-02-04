@@ -214,7 +214,7 @@ if __name__ == '__main__':
                 seventeenth_figure.add_caption('Minimum filter denoised J2.')
 
         doc.append(NewPage())
-        
+
         # Maximum
         with doc.create(Subsection('Maximum De-noise: J1')):
             doc.append('Images with maximum filter denoise on J1:')
@@ -233,5 +233,24 @@ if __name__ == '__main__':
             with doc.create(Figure(position = 'h!')) as nineteenth_figure:
                 nineteenth_figure.add_image(image_path, width = '120px')
                 nineteenth_figure.add_caption('Maximum filter denoised J2.')
+
+        # Mid-point
+        with doc.create(Subsection('Mid-point De-noise: J1')):
+            doc.append('Images with mid-point filter denoise on J1:')
+
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem1', 'p1_c_8_j1.jpg')
+
+            with doc.create(Figure(position = 'h!')) as twentieth_figure:
+                twentieth_figure.add_image(image_path, width = '120px')
+                twentieth_figure.add_caption('Mid-point filter denoised J1.')
+
+        with doc.create(Subsection('Mid-point De-noise: J2')):
+            doc.append('Images with mid-point filter denoise on J2:')
+
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem1', 'p1_c_8_j2.jpg')
+
+            with doc.create(Figure(position = 'h!')) as twentyoneieth_figure:
+                twentyoneieth_figure.add_image(image_path, width = '120px')
+                twentyoneieth_figure.add_caption('Mid-point filter denoised J2.')
 
     doc.generate_pdf('problem1', clean_tex = False)
