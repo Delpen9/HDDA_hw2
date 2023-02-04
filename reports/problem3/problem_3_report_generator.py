@@ -106,6 +106,8 @@ if __name__ == '__main__':
                 second_figure.add_image(image_path, width = '120px')
                 second_figure.add_caption('Image with K-means Clustering: 4 Clusters.')
 
+        doc.append(NewPage())
+
         with doc.create(Subsection('K-means Clustering Histogram: 4 Clusters')):
             doc.append('Histogram of the image split into four clusters:')
 
