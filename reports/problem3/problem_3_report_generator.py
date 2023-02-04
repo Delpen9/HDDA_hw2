@@ -160,13 +160,15 @@ if __name__ == '__main__':
             with open(text_path, 'r') as file:
                 optimal_otsu_threshold = file.read().rstrip()
 
-            doc.append(optimal_otsu_threshold)
+            doc.append(fr'{optimal_otsu_threshold}.')
 
             image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem3', 'p3_3_otsu_threshold_image.jpg')
 
             with doc.create(Figure(position = 'h!')) as second_figure:
                 second_figure.add_image(image_path, width = '120px')
                 second_figure.add_caption('Image thresholded using Otsu\'s method.')
+
+        doc.append(NewPage())
 
         with doc.create(Subsection('Plot the histogram of the image that underwent Otsu thresholding:')):
             image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem3', 'p3_3_otsu_histogram.jpg')
