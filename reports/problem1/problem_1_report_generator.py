@@ -74,6 +74,8 @@ if __name__ == '__main__':
                 third_figure.add_image(image_path, width = '120px')
                 third_figure.add_caption('J2: Greyscale image with salt-and-pepper noise applied.')
 
+    doc.append(NewPage())
+    
     # Part C
     with doc.create(Section('Part C')):
         with doc.create(Subsection('Gaussian De-noise: J1')):
