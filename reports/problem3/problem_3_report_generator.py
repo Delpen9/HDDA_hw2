@@ -56,6 +56,7 @@ if __name__ == '__main__':
 
     # Part 1
     with doc.create(Section('Part 1')):
+        # 2 Clusters
         with doc.create(Subsection('K-means Clustering: 2 Clusters')):
             doc.append('Image split into two clusters:')
 
@@ -66,12 +67,33 @@ if __name__ == '__main__':
                 second_figure.add_caption('Image with K-means Clustering: 2 Clusters.')
 
         with doc.create(Subsection('K-means Clustering Histogram: 2 Clusters')):
-            doc.append(r'Histogram of the image split into two clusters:')
+            doc.append('Histogram of the image split into two clusters:')
 
             image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem3', 'p3_1_kmeans_2_histogram.jpg')
 
             with doc.create(Figure(position = 'h!')) as third_figure:
                 third_figure.add_image(image_path, width = '200px')
                 third_figure.add_caption('Histogram of image with K-means Clustering: 2 Clusters.')
+
+        doc.append(NewPage())
+
+        # 3 Clusters
+        with doc.create(Subsection('K-means Clustering: 3 Clusters')):
+            doc.append('Image split into three clusters:')
+
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem3', 'p3_1_kmeans_3.jpg')
+
+            with doc.create(Figure(position = 'h!')) as second_figure:
+                second_figure.add_image(image_path, width = '120px')
+                second_figure.add_caption('Image with K-means Clustering: 3 Clusters.')
+
+        with doc.create(Subsection('K-means Clustering Histogram: 3 Clusters')):
+            doc.append('Histogram of the image split into three clusters:')
+
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem3', 'p3_1_kmeans_3_histogram.jpg')
+
+            with doc.create(Figure(position = 'h!')) as third_figure:
+                third_figure.add_image(image_path, width = '200px')
+                third_figure.add_caption('Histogram of image with K-means Clustering: 3 Clusters.')
 
     doc.generate_pdf('problem1', clean_tex = False)
