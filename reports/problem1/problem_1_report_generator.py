@@ -60,16 +60,16 @@ if __name__ == '__main__':
             image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem1', 'p1_b_1_gaussian.jpg')
 
             with doc.create(Figure(position = 'h!')) as second_figure:
-                first_figure.add_image(image_path, width = '120px')
-                first_figure.add_caption('Greyscale image with gaussian noise applied.')
+                second_figure.add_image(image_path, width = '120px')
+                second_figure.add_caption('Greyscale image with gaussian noise applied.')
 
         with doc.create(Subsection('Subsection 2')):
             doc.append(r'Image with salt-and-pepper noise, affecting approximately 5% of pixels:')
 
             image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem1', 'p1_b_2_salt_and_pepper.jpg')
 
-            with doc.create(Figure(position = 'h!')) as second_figure:
-                first_figure.add_image(image_path, width = '120px')
-                first_figure.add_caption('Greyscale image with salt-and-pepper noise applied.')
+            with doc.create(Figure(position = 'h!')) as third_figure:
+                third_figure.add_image(image_path, width = '120px')
+                third_figure.add_caption('Greyscale image with salt-and-pepper noise applied.')
 
     doc.generate_pdf('problem1', clean_tex = False)
