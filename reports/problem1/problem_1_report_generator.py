@@ -89,5 +89,20 @@ if __name__ == '__main__':
                 fifth_figure.add_image(image_path, width = '120px')
                 fifth_figure.add_caption('Gaussian filter denoised J2.')
 
+        with doc.create(Subsection('Subsection 2')):
+            doc.append('Images with median filter denoise:')
+
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem1', 'p1_c_2_j1.jpg')
+
+            with doc.create(Figure(position = 'h!')) as sixth_figure:
+                sixth_figure.add_image(image_path, width = '120px')
+                sixth_figure.add_caption('Median filter denoised J1.')
+
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem1', 'p1_c_2_j2.jpg')
+
+            with doc.create(Figure(position = 'h!')) as seventh_figure:
+                seventh_figure.add_image(image_path, width = '120px')
+                seventh_figure.add_caption('Median filter denoised J2.')
+
 
     doc.generate_pdf('problem1', clean_tex = False)
