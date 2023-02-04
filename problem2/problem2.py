@@ -81,8 +81,7 @@ if __name__ == '__main__':
     cv2.imwrite(image_path, image_laplacian_of_gaussian)
 
     # Part 4
-    # TODO: Fix this code
-    # image_difference_of_gaussian = difference_of_gaussian_edge_detection(image_grayscale)
+    image_difference_of_gaussian = display_output_image(image_grayscale)
 
-    # image_path = os.path.join(parent_directory, '..', 'output', 'problem2', 'p2_part_4_difference_of_gaussian.jpg')
-    # cv2.imwrite(image_path, image_difference_of_gaussian)
+    image_path = os.path.join(parent_directory, '..', 'output', 'problem2', 'p2_part_4_difference_of_gaussian.jpg')
+    cv2.imwrite(image_path, image_difference_of_gaussian)
