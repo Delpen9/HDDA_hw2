@@ -71,7 +71,7 @@ if __name__ == '__main__':
             image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem3', 'p3_1_kmeans_2_histogram.jpg')
 
             with doc.create(Figure(position = 'h!')) as third_figure:
-                third_figure.add_image(image_path, width = '120px')
-                third_figure.add_caption('Histogram of Image with K-means Clustering: 2 Clusters.')
+                third_figure.add_image(image_path, width = '200px')
+                third_figure.add_caption('Histogram of image with K-means Clustering: 2 Clusters.')
 
     doc.generate_pdf('problem1', clean_tex = False)
