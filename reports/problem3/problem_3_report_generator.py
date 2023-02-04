@@ -96,4 +96,23 @@ if __name__ == '__main__':
                 third_figure.add_image(image_path, width = '200px')
                 third_figure.add_caption('Histogram of image with K-means Clustering: 3 Clusters.')
 
+        # 4 Clusters
+        with doc.create(Subsection('K-means Clustering: 4 Clusters')):
+            doc.append('Image split into four clusters:')
+
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem3', 'p3_1_kmeans_4.jpg')
+
+            with doc.create(Figure(position = 'h!')) as second_figure:
+                second_figure.add_image(image_path, width = '120px')
+                second_figure.add_caption('Image with K-means Clustering: 4 Clusters.')
+
+        with doc.create(Subsection('K-means Clustering Histogram: 4 Clusters')):
+            doc.append('Histogram of the image split into four clusters:')
+
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem3', 'p3_1_kmeans_4_histogram.jpg')
+
+            with doc.create(Figure(position = 'h!')) as third_figure:
+                third_figure.add_image(image_path, width = '200px')
+                third_figure.add_caption('Histogram of image with K-means Clustering: 4 Clusters.')
+
     doc.generate_pdf('problem1', clean_tex = False)
