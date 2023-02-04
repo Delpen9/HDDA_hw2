@@ -75,9 +75,10 @@ if __name__ == '__main__':
                 third_figure.add_caption('J2: Greyscale image with salt-and-pepper noise applied.')
 
     doc.append(NewPage())
-    
+
     # Part C
     with doc.create(Section('Part C')):
+        # Gaussian
         with doc.create(Subsection('Gaussian De-noise: J1')):
             doc.append('Images with gaussian filter denoise on J1:')
 
@@ -96,6 +97,7 @@ if __name__ == '__main__':
                 fifth_figure.add_image(image_path, width = '120px')
                 fifth_figure.add_caption('Gaussian filter denoised J2.')
 
+        # Median
         with doc.create(Subsection('Median De-noise: J1')):
             doc.append('Images with median filter denoise on J1:')
 
@@ -113,6 +115,28 @@ if __name__ == '__main__':
             with doc.create(Figure(position = 'h!')) as seventh_figure:
                 seventh_figure.add_image(image_path, width = '120px')
                 seventh_figure.add_caption('Median filter denoised J2.')
+
+        doc.append(NewPage())
+
+        # Arithematic Mean
+        with doc.create(Subsection('Arithematic Mean De-noise: J1')):
+            doc.append('Images with arithematic mean filter denoise on J1:')
+
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem1', 'p1_c_3_j1.jpg')
+
+            with doc.create(Figure(position = 'h!')) as fourth_figure:
+                fourth_figure.add_image(image_path, width = '120px')
+                fourth_figure.add_caption('Arithematic mean filter denoised J1.')
+
+        with doc.create(Subsection('Arithematic Mean De-noise: J2')):
+            doc.append('Images with arithematic mean filter denoise on J2:')
+
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem1', 'p1_c_3_j2.jpg')
+
+            with doc.create(Figure(position = 'h!')) as fifth_figure:
+                fifth_figure.add_image(image_path, width = '120px')
+                fifth_figure.add_caption('Arithematic mean filter denoised J2.')
+
 
 
     doc.generate_pdf('problem1', clean_tex = False)
