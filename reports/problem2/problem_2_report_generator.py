@@ -144,7 +144,7 @@ if __name__ == '__main__':
                 tenth_figure.add_caption('Prewitt threshold of 100.')
 
         doc.append(NewPage())
-        
+
         with doc.create(Subsection('Prewitt Threshold: 150')):
             doc.append('Use the prewitt operator on the image with a threshold of 150:')
 
@@ -173,5 +173,25 @@ if __name__ == '__main__':
                 thirteenth_figure.add_caption('Prewitt threshold of 255.')
 
         doc.append(NewPage())
+
+    # Part 3
+    with doc.create(Section('Part 3')):
+        doc.append('Detect edges using Laplacian of Gaussian:')
+
+        image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem2', 'p2_part_3_laplacian_of_gaussian.jpg')
+
+        with doc.create(Figure(position = 'h!')) as fourteenth_figure:
+            fourteenth_figure.add_image(image_path, width = '120px')
+            fourteenth_figure.add_caption('Laplacian of Gaussian for edge detection.')
+
+    # Part 4
+    with doc.create(Section('Part 4')):
+        doc.append('Detect edges using Difference of Gaussian:')
+
+        image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem2', 'p2_part_4_difference_of_gaussian.jpg')
+
+        with doc.create(Figure(position = 'h!')) as fifteenth_figure:
+            fifteenth_figure.add_image(image_path, width = '120px')
+            fifteenth_figure.add_caption('Difference of Gaussian for edge detection.')
 
     doc.generate_pdf('problem2', clean_tex = False)
