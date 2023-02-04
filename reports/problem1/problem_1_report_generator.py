@@ -50,7 +50,7 @@ if __name__ == '__main__':
         doc.append('Image converted to greyscale:')
         with doc.create(Figure(position = 'h!')) as first_figure:
             first_figure.add_image(image_path, width = '120px')
-            first_figure.add_caption('Greyscale dimensionally reduces the image and assigns weights to RGB values to created a weighted average.')
+            first_figure.add_caption('Greyscale image.')
 
     # Part B
     with doc.create(Section('Part B')):
@@ -61,7 +61,7 @@ if __name__ == '__main__':
 
             with doc.create(Figure(position = 'h!')) as second_figure:
                 second_figure.add_image(image_path, width = '120px')
-                second_figure.add_caption('Greyscale image with gaussian noise applied.')
+                second_figure.add_caption('J1: Greyscale image with gaussian noise applied.')
 
         with doc.create(Subsection('Subsection 2')):
             doc.append(r'Image with salt-and-pepper noise, affecting approximately 5% of pixels:')
@@ -70,6 +70,24 @@ if __name__ == '__main__':
 
             with doc.create(Figure(position = 'h!')) as third_figure:
                 third_figure.add_image(image_path, width = '120px')
-                third_figure.add_caption('Greyscale image with salt-and-pepper noise applied.')
+                third_figure.add_caption('J2: Greyscale image with salt-and-pepper noise applied.')
+
+    # Part C
+    with doc.create(Section('Part C')):
+        with doc.create(Subsection('Subsection 1')):
+            doc.append('Images with gaussian filter denoise:')
+
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem1', 'p1_c_1_j1.jpg')
+
+            with doc.create(Figure(position = 'h!')) as fourth_figure:
+                fourth_figure.add_image(image_path, width = '120px')
+                fourth_figure.add_caption('Gaussian filter denoised J1.')
+
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem1', 'p1_c_1_j2.jpg')
+
+            with doc.create(Figure(position = 'h!')) as fourth_figure:
+                fourth_figure.add_image(image_path, width = '120px')
+                fourth_figure.add_caption('Gaussian filter denoised J2.')
+
 
     doc.generate_pdf('problem1', clean_tex = False)
