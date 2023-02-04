@@ -87,9 +87,9 @@ if __name__ == '__main__':
             with doc.create(Subsection('J2')):
                 image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem1', 'p1_c_1_j2.jpg')
 
-                with doc.create(Figure(position = 'h!')) as fourth_figure:
-                    fourth_figure.add_image(image_path, width = '120px')
-                    fourth_figure.add_caption('Gaussian filter denoised J2.')
+                with doc.create(Figure(position = 'h!')) as fifth_figure:
+                    fifth_figure.add_image(image_path, width = '120px')
+                    fifth_figure.add_caption('Gaussian filter denoised J2.')
 
 
     doc.generate_pdf('problem1', clean_tex = False)
