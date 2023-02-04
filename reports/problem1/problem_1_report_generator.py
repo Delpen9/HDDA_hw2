@@ -45,11 +45,31 @@ if __name__ == '__main__':
     parent_directory = os.path.dirname(file_path)
     image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem1', 'p1_a_grayscale.jpg')
 
-    with doc.create(Section('Section 1')):
+    # Part A
+    with doc.create(Section('Part A')):
         doc.append('Image converted to greyscale:')
         with doc.create(Figure(position = 'h!')) as first_figure:
             first_figure.add_image(image_path, width = '120px')
-            first_figure.add_caption('''Greyscale dimensionally reduces the image and assigns
-            weights to RGB values to created a weighted average.''')
+            first_figure.add_caption('Greyscale dimensionally reduces the image and assigns weights to RGB values to created a weighted average.')
+
+    # Part B
+    with doc.create(Section('Part B')):
+        with doc.create(Subsection('Subsection 1')):
+            doc.append('Image with zero-mean Gaussian white noise with variance of 0.01:')
+
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem1', 'p1_b_1_gaussian.jpg')
+
+            with doc.create(Figure(position = 'h!')) as second_figure:
+                first_figure.add_image(image_path, width = '120px')
+                first_figure.add_caption('Greyscale image with gaussian noise applied.')
+
+        with doc.create(Subsection('Subsection 2')):
+            doc.append(r'Image with salt-and-pepper noise, affecting approximately 5% of pixels:')
+
+            image_path = os.path.join(parent_directory, '..', '..', 'output', 'problem1', 'p1_b_2_salt_and_pepper.jpg')
+
+            with doc.create(Figure(position = 'h!')) as second_figure:
+                first_figure.add_image(image_path, width = '120px')
+                first_figure.add_caption('Greyscale image with salt-and-pepper noise applied.')
 
     doc.generate_pdf('problem1', clean_tex = False)
