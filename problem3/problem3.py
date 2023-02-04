@@ -25,21 +25,21 @@ if __name__ == '__main__':
     image_k_means_4_clusters = image_clustering(image, 4)
     image_k_means_5_clusters = image_clustering(image, 5)
 
-    image_path = os.path.join(parent_directory, '..', 'output', 'problem3', 'p3_kmeans_2.jpg')
+    image_path = os.path.join(parent_directory, '..', 'output', 'problem3', 'p3_1_kmeans_2.jpg')
     cv2.imwrite(image_path, image_k_means_2_clusters)
-    plot_greyscale_histogram(convert2grayscale(image_k_means_2_clusters), 'p3_kmeans_2_histogram.jpg')
+    plot_greyscale_histogram(convert2grayscale(image_k_means_2_clusters), 'p3_1_kmeans_2_histogram.jpg')
 
-    image_path = os.path.join(parent_directory, '..', 'output', 'problem3', 'p3_kmeans_3.jpg')
+    image_path = os.path.join(parent_directory, '..', 'output', 'problem3', 'p3_1_kmeans_3.jpg')
     cv2.imwrite(image_path, image_k_means_3_clusters)
-    plot_greyscale_histogram(convert2grayscale(image_k_means_3_clusters), 'p3_kmeans_3_histogram.jpg')
+    plot_greyscale_histogram(convert2grayscale(image_k_means_3_clusters), 'p3_1_kmeans_3_histogram.jpg')
 
-    image_path = os.path.join(parent_directory, '..', 'output', 'problem3', 'p3_kmeans_4.jpg')
+    image_path = os.path.join(parent_directory, '..', 'output', 'problem3', 'p3_1_kmeans_4.jpg')
     cv2.imwrite(image_path, image_k_means_4_clusters)
-    plot_greyscale_histogram(convert2grayscale(image_k_means_4_clusters), 'p3_kmeans_4_histogram.jpg')
+    plot_greyscale_histogram(convert2grayscale(image_k_means_4_clusters), 'p3_1_kmeans_4_histogram.jpg')
 
-    image_path = os.path.join(parent_directory, '..', 'output', 'problem3', 'p3_kmeans_5.jpg')
+    image_path = os.path.join(parent_directory, '..', 'output', 'problem3', 'p3_1_kmeans_5.jpg')
     cv2.imwrite(image_path, image_k_means_5_clusters)
-    plot_greyscale_histogram(convert2grayscale(image_k_means_5_clusters), 'p3_kmeans_5_histogram.jpg')
+    plot_greyscale_histogram(convert2grayscale(image_k_means_5_clusters), 'p3_1_kmeans_5_histogram.jpg')
 
     # Part 2
     image_grayscale = convert2grayscale(image)
@@ -72,9 +72,9 @@ if __name__ == '__main__':
 
     # Part 5
     # TODO: Fix this
-    # power_law_transform_image = power_law_transform(image_grayscale)
+    power_law_transform_image = power_law_transform(image_grayscale)
 
-    # image_path = os.path.join(parent_directory, '..', 'output', 'problem3', 'p3_5_power_law_transform_image.jpg')
-    # cv2.imwrite(image_path, power_law_transform_image)
-    # plot_greyscale_histogram(power_law_transform_image, 'p3_5_power_law_transform_image_histogram.jpg')
+    image_path = os.path.join(parent_directory, '..', 'output', 'problem3', 'p3_5_power_law_transform_image.jpg')
+    cv2.imwrite(image_path, power_law_transform_image)
+    plot_greyscale_histogram(power_law_transform_image, 'p3_5_power_law_transform_image_histogram.jpg')
 
