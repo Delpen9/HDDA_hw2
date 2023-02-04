@@ -253,4 +253,8 @@ if __name__ == '__main__':
                 twentyoneieth_figure.add_image(image_path, width = '120px')
                 twentyoneieth_figure.add_caption('Mid-point filter denoised J2.')
 
+    # Part D
+    with doc.create(Section('Part D')):
+        doc.append('What denoising technique do you recommend for removing Gaussian noise? What denoising technique do you recommend for removing salt-and-pepper noise?')
+
     doc.generate_pdf('problem1', clean_tex = False)
