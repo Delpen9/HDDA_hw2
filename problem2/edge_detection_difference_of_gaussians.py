@@ -17,20 +17,23 @@ def difference_of_gaussian_edge_detection(
     - gamma (float): Factor to multiply second gaussian by. Default is 0.98.
 
     Returns:
-    - difference_of_gaussian_image (np.ndarray): Difference of Gaussian image.
+    - difference_of_gaussian_kernel (np.ndarray): Difference of Gaussian kernel.
     '''
     assert _k >= 1.0
 
-    kernel_size = (3, 3)
+    # image_1 = cv2.getGaussianKernel(5, sigma)
 
-    image_1 = cv2.GaussianBlur(image, ksize = kernel_size, sigmaX = sigma, sigmaY = sigma)
+    # sigma_2 = _k * sigma
+    # image_2 = gamma * cv2.getGaussianKernel(5, sigma_2)
 
-    sigma_2 = -_k * sigma
-    image_2 = gamma * cv2.GaussianBlur(image, ksize = kernel_size, sigmaX = sigma_2, sigmaY = sigma_2)
+    # difference_of_gaussian_kernel = image_1 - image_2
 
-    difference_of_gaussian_image = image_1 - image_2
+    low_sigma = cv2.GaussianBlur(image, (3, 3), 0)
+    high_sigma = cv2.GaussianBlur(image, (5, 5), 1)
 
-    return difference_of_gaussian_image
+    difference_of_gaussian_kernel = low_sigma - high_sigma
+
+    return difference_of_gaussian_kernel
 
 def display_output_image(
     image: np.ndarray,
@@ -56,13 +59,15 @@ def display_output_image(
     - _t (np.ndarray): The output image after applying the
     edge detection and non-linear transformation.
     '''
-    difference_of_gaussian_image = difference_of_gaussian_edge_detection(image, sigma, _k, gamma)
+    difference_of_gaussian_kernel = difference_of_gaussian_edge_detection(image, sigma, _k, gamma)
 
-    _u = np.multiply(difference_of_gaussian_image, image)
+    print(difference_of_gaussian_kernel)
 
-    condition = (_u >= epsilon)
+    # _u = cv2.filter2D(src = image, ddepth = -1, kernel = difference_of_gaussian_kernel)
 
-    _t = np.ones(_u.shape)
-    _t[~condition] = 1 + np.tanh(phi * (_u[~condition] * epsilon))
+    # condition = (_u >= epsilon)
 
-    return _t
+    # _t = np.ones(_u.shape)
+    # _t[~condition] = 1 + np.tanh(phi * (_u[~condition] - epsilon))
+
+    return difference_of_gaussian_kernel * 255

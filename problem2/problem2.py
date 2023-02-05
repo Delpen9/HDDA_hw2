@@ -10,7 +10,7 @@ from convert_to_grayscale import convert2grayscale
 from edge_detection_sobel import sobel_edge_detection
 from edge_detection_prewitt import prewitt_edge_detection
 from edge_detection_laplacian import laplacian_of_gaussian_edge_detection
-from edge_detection_difference_of_gaussians import difference_of_gaussian_edge_detection
+from edge_detection_difference_of_gaussians import display_output_image
 
 if __name__ == '__main__':
     file_path = os.path.abspath(__file__)
