@@ -256,5 +256,9 @@ if __name__ == '__main__':
     # Part D
     with doc.create(Section('Part D')):
         doc.append('What denoising technique do you recommend for removing gaussian noise? What denoising technique do you recommend for removing salt-and-pepper noise?')
+        doc.append('''The best denoising technique for removing gaussian noise is the gaussian denoise.
+        The gaussian denoise performs the inverse operation of the gaussian noise, thus resulting in the best result.''')
+        doc.append('''The best denoising technique is the median filter. The median filter is superior because all mean filters will preserve information on the salt-and-pepper noise;
+        additionally, the minimum and maximum filters will also presever some salt-and-pepper noise.''')
 
     doc.generate_pdf('problem1', clean_tex = False)
