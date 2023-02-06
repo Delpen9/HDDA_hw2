@@ -117,22 +117,22 @@ def geometric_mean_denoise(
       Returns:
       ndarray: The denoised image.
     """
-    kernel = np.ones((_m, _n))
-    _n = kernel.size
+    assert _m == _n
+    
+    image_copy = image.copy()
 
-    denoised_image = image.copy()
+    pad_size = 1
+    padded_image = cv2.copyMakeBorder(image_copy, *[pad_size] * 4, cv2.BORDER_DEFAULT)
 
-    _h, _w = image.shape[:2]
+    geometric_mean_image = np.zeros_like(image_copy)
 
-    for i in range(_m // 2, _h - _m // 2):
-        for j in range(_n // 2, _w - _n // 2):
-            pixels = image[
-              i - _m // 2 : i + _m // 2 + 1,
-              j - _n // 2 : j + _n // 2 + 1
-            ]
-            mean = np.power(np.prod(pixels), 1 / _n)
+    _h, _w = image_copy.shape[:2]
 
-            denoised_image[i][j] = mean
+    for h in range(_h):
+        for w in range(_w):
+            geometric_mean_image[h, w] = np.prod(padded_image[h : h + _m, w : w + _n])**(1 / (_m**2))
+
+    denoised_image = np.uint8(geometric_mean_image)
 
     return denoised_image
 
@@ -179,26 +179,18 @@ def contraharmonic_mean_filter(
     Returns:
         denoised_image (ndarray): The filtered image
     """
-    new_image = image.copy()
+    image_copy = image.copy()
     
-    kernel = np.ones((_m, _n))
+    numerator = np.power(image_copy, _q + 1)
 
-    if _q == 0:
-        kernel = kernel / (_m * _n)
-        denoised_image = cv2.filter2D(new_image, -1, kernel)
-
+    if _q == -1:
+        denominator = 1 / np.power(image_copy, 1)
     else:
-        denoised_image = np.zeros_like(new_image)
+        denominator = np.power(image_copy, _q)
 
-        for i in range(new_image.shape[2]):
-            denoised_image[i] = (
-                np.power(
-                        np.sum(np.power(new_image[i], _q + 1)),
-                        1 / (_q + 1)
-                    ) / np.sum(np.power(new_image[i], _q)
-                )
-            )
+    kernel = np.full((_m, _n), 1.0)
 
+    denoised_image = cv2.filter2D(numerator, -1, kernel) / cv2.filter2D(denominator, -1, kernel)
     return denoised_image
 
 def minimum_filter(
@@ -332,7 +324,6 @@ if __name__ == '__main__':
     cv2.imwrite(image_path, image_mean_filter_denoised_j2)
 
     # Part C.4
-    ## TODO: Fix this
     image_geometric_mean_filter_denoised_j1 = geometric_mean_denoise(image_gaussian_noise)
     image_geometric_mean_filter_denoised_j2 = geometric_mean_denoise(image_salt_and_pepper_noise)
 
@@ -343,7 +334,6 @@ if __name__ == '__main__':
     cv2.imwrite(image_path, image_geometric_mean_filter_denoised_j2)
 
     # Part C.5
-    ## TODO: Fix this
     image_harmonic_mean_filter_denoised_j1 = harmonic_denoise(image_gaussian_noise)
     image_harmonic_mean_filter_denoised_j2 = harmonic_denoise(image_salt_and_pepper_noise)
 
@@ -354,36 +344,35 @@ if __name__ == '__main__':
     cv2.imwrite(image_path, image_harmonic_mean_filter_denoised_j2)
 
     # Part C.6
-    # TODO: Fix this
-    # # _q = -1
-    # image_contraharmonic_mean_filter_denoised_j1_q_neg_1 = contraharmonic_mean_filter(image_gaussian_noise, -1)
-    # image_contraharmonic_mean_filter_denoised_j2_q_neg_1 = contraharmonic_mean_filter(image_salt_and_pepper_noise, -1)
+    # _q = -1
+    image_contraharmonic_mean_filter_denoised_j1_q_neg_1 = contraharmonic_mean_filter(image_gaussian_noise, -1)
+    image_contraharmonic_mean_filter_denoised_j2_q_neg_1 = contraharmonic_mean_filter(image_salt_and_pepper_noise, -1)
 
-    # image_path = os.path.join(parent_directory, '..', 'output', 'problem1', 'p1_c_6_j1_q_neg1.jpg')
-    # cv2.imwrite(image_path, image_contraharmonic_mean_filter_denoised_j1)
+    image_path = os.path.join(parent_directory, '..', 'output', 'problem1', 'p1_c_6_j1_q_neg1.jpg')
+    cv2.imwrite(image_path, image_contraharmonic_mean_filter_denoised_j1)
 
-    # image_path = os.path.join(parent_directory, '..', 'output', 'problem1', 'p1_c_6_j2_q_neg1.jpg')
-    # cv2.imwrite(image_path, image_contraharmonic_mean_filter_denoised_j2)
+    image_path = os.path.join(parent_directory, '..', 'output', 'problem1', 'p1_c_6_j2_q_neg1.jpg')
+    cv2.imwrite(image_path, image_contraharmonic_mean_filter_denoised_j2)
 
-    # # _q = 0
-    # image_contraharmonic_mean_filter_denoised_j1_q_0 = contraharmonic_mean_filter(image_gaussian_noise, 0)
-    # image_contraharmonic_mean_filter_denoised_j2_q_0 = contraharmonic_mean_filter(image_salt_and_pepper_noise, 0)
+    # _q = 0
+    image_contraharmonic_mean_filter_denoised_j1_q_0 = contraharmonic_mean_filter(image_gaussian_noise, 0)
+    image_contraharmonic_mean_filter_denoised_j2_q_0 = contraharmonic_mean_filter(image_salt_and_pepper_noise, 0)
 
-    # image_path = os.path.join(parent_directory, '..', 'output', 'problem1', 'p1_c_6_j1_q_0.jpg')
-    # cv2.imwrite(image_path, image_contraharmonic_mean_filter_denoised_j1_q_0)
+    image_path = os.path.join(parent_directory, '..', 'output', 'problem1', 'p1_c_6_j1_q_0.jpg')
+    cv2.imwrite(image_path, image_contraharmonic_mean_filter_denoised_j1_q_0)
 
-    # image_path = os.path.join(parent_directory, '..', 'output', 'problem1', 'p1_c_6_j2_q_0.jpg')
-    # cv2.imwrite(image_path, image_contraharmonic_mean_filter_denoised_j2_q_0)
+    image_path = os.path.join(parent_directory, '..', 'output', 'problem1', 'p1_c_6_j2_q_0.jpg')
+    cv2.imwrite(image_path, image_contraharmonic_mean_filter_denoised_j2_q_0)
 
-    # # _q = 1
-    # image_contraharmonic_mean_filter_denoised_j1_q_1 = contraharmonic_mean_filter(image_gaussian_noise, 1)
-    # image_contraharmonic_mean_filter_denoised_j2_q_1 = contraharmonic_mean_filter(image_salt_and_pepper_noise, 1)
+    # _q = 1
+    image_contraharmonic_mean_filter_denoised_j1_q_1 = contraharmonic_mean_filter(image_gaussian_noise, 1)
+    image_contraharmonic_mean_filter_denoised_j2_q_1 = contraharmonic_mean_filter(image_salt_and_pepper_noise, 1)
 
-    # image_path = os.path.join(parent_directory, '..', 'output', 'problem1', 'p1_c_6_j1_q_1.jpg')
-    # cv2.imwrite(image_path, image_contraharmonic_mean_filter_denoised_j1_q_1)
+    image_path = os.path.join(parent_directory, '..', 'output', 'problem1', 'p1_c_6_j1_q_1.jpg')
+    cv2.imwrite(image_path, image_contraharmonic_mean_filter_denoised_j1_q_1)
 
-    # image_path = os.path.join(parent_directory, '..', 'output', 'problem1', 'p1_c_6_j2_q_1.jpg')
-    # cv2.imwrite(image_path, image_contraharmonic_mean_filter_denoised_j2_q_1)
+    image_path = os.path.join(parent_directory, '..', 'output', 'problem1', 'p1_c_6_j2_q_1.jpg')
+    cv2.imwrite(image_path, image_contraharmonic_mean_filter_denoised_j2_q_1)
 
     # Part C.7
     image_minimum_filter_denoised_j1 = minimum_filter(image_gaussian_noise)

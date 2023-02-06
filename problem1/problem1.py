@@ -98,36 +98,35 @@ if __name__ == '__main__':
     cv2.imwrite(image_path, image_harmonic_mean_filter_denoised_j2)
 
     # Part C.6
-    # TODO: Fix this
-    # # _q = -1
-    # image_contraharmonic_mean_filter_denoised_j1_q_neg_1 = contraharmonic_mean_filter(image_gaussian_noise, -1)
-    # image_contraharmonic_mean_filter_denoised_j2_q_neg_1 = contraharmonic_mean_filter(image_salt_and_pepper_noise, -1)
+    # _q = -1
+    image_contraharmonic_mean_filter_denoised_j1_q_neg_1 = contraharmonic_mean_filter(image_gaussian_noise, -1)
+    image_contraharmonic_mean_filter_denoised_j2_q_neg_1 = contraharmonic_mean_filter(image_salt_and_pepper_noise, -1)
 
-    # image_path = os.path.join(parent_directory, '..', 'output', 'problem1', 'p1_c_6_j1_q_neg1.jpg')
-    # cv2.imwrite(image_path, image_contraharmonic_mean_filter_denoised_j1)
+    image_path = os.path.join(parent_directory, '..', 'output', 'problem1', 'p1_c_6_j1_q_neg1.jpg')
+    cv2.imwrite(image_path, image_contraharmonic_mean_filter_denoised_j1_q_neg_1)
 
-    # image_path = os.path.join(parent_directory, '..', 'output', 'problem1', 'p1_c_6_j2_q_neg1.jpg')
-    # cv2.imwrite(image_path, image_contraharmonic_mean_filter_denoised_j2)
+    image_path = os.path.join(parent_directory, '..', 'output', 'problem1', 'p1_c_6_j2_q_neg1.jpg')
+    cv2.imwrite(image_path, image_contraharmonic_mean_filter_denoised_j2_q_neg_1)
 
-    # # _q = 0
-    # image_contraharmonic_mean_filter_denoised_j1_q_0 = contraharmonic_mean_filter(image_gaussian_noise, 0)
-    # image_contraharmonic_mean_filter_denoised_j2_q_0 = contraharmonic_mean_filter(image_salt_and_pepper_noise, 0)
+    # _q = 0
+    image_contraharmonic_mean_filter_denoised_j1_q_0 = contraharmonic_mean_filter(image_gaussian_noise, 0)
+    image_contraharmonic_mean_filter_denoised_j2_q_0 = contraharmonic_mean_filter(image_salt_and_pepper_noise, 0)
 
-    # image_path = os.path.join(parent_directory, '..', 'output', 'problem1', 'p1_c_6_j1_q_0.jpg')
-    # cv2.imwrite(image_path, image_contraharmonic_mean_filter_denoised_j1_q_0)
+    image_path = os.path.join(parent_directory, '..', 'output', 'problem1', 'p1_c_6_j1_q_0.jpg')
+    cv2.imwrite(image_path, image_contraharmonic_mean_filter_denoised_j1_q_0)
 
-    # image_path = os.path.join(parent_directory, '..', 'output', 'problem1', 'p1_c_6_j2_q_0.jpg')
-    # cv2.imwrite(image_path, image_contraharmonic_mean_filter_denoised_j2_q_0)
+    image_path = os.path.join(parent_directory, '..', 'output', 'problem1', 'p1_c_6_j2_q_0.jpg')
+    cv2.imwrite(image_path, image_contraharmonic_mean_filter_denoised_j2_q_0)
 
-    # # _q = 1
-    # image_contraharmonic_mean_filter_denoised_j1_q_1 = contraharmonic_mean_filter(image_gaussian_noise, 1)
-    # image_contraharmonic_mean_filter_denoised_j2_q_1 = contraharmonic_mean_filter(image_salt_and_pepper_noise, 1)
+    # _q = 1
+    image_contraharmonic_mean_filter_denoised_j1_q_1 = contraharmonic_mean_filter(image_gaussian_noise, 1)
+    image_contraharmonic_mean_filter_denoised_j2_q_1 = contraharmonic_mean_filter(image_salt_and_pepper_noise, 1)
 
-    # image_path = os.path.join(parent_directory, '..', 'output', 'problem1', 'p1_c_6_j1_q_1.jpg')
-    # cv2.imwrite(image_path, image_contraharmonic_mean_filter_denoised_j1_q_1)
+    image_path = os.path.join(parent_directory, '..', 'output', 'problem1', 'p1_c_6_j1_q_1.jpg')
+    cv2.imwrite(image_path, image_contraharmonic_mean_filter_denoised_j1_q_1)
 
-    # image_path = os.path.join(parent_directory, '..', 'output', 'problem1', 'p1_c_6_j2_q_1.jpg')
-    # cv2.imwrite(image_path, image_contraharmonic_mean_filter_denoised_j2_q_1)
+    image_path = os.path.join(parent_directory, '..', 'output', 'problem1', 'p1_c_6_j2_q_1.jpg')
+    cv2.imwrite(image_path, image_contraharmonic_mean_filter_denoised_j2_q_1)
 
     # Part C.7
     image_minimum_filter_denoised_j1 = minimum_filter(image_gaussian_noise)

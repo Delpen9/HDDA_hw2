@@ -18,21 +18,21 @@ def geometric_mean_denoise(
       Returns:
       ndarray: The denoised image.
     """
-    kernel = np.ones((_m, _n))
-    _n = kernel.size
+    assert _m == _n
+    
+    image_copy = image.copy()
 
-    denoised_image = image.copy()
+    pad_size = 1
+    padded_image = cv2.copyMakeBorder(image_copy, *[pad_size] * 4, cv2.BORDER_DEFAULT)
 
-    _h, _w = image.shape[:2]
+    geometric_mean_image = np.zeros_like(image_copy)
 
-    for i in range(_m // 2, _h - _m // 2):
-        for j in range(_n // 2, _w - _n // 2):
-            pixels = image[
-              i - _m // 2 : i + _m // 2 + 1,
-              j - _n // 2 : j + _n // 2 + 1
-            ]
-            mean = np.power(np.prod(pixels), 1 / _n)
+    _h, _w = image_copy.shape[:2]
 
-            denoised_image[i][j] = mean
+    for h in range(_h):
+        for w in range(_w):
+            geometric_mean_image[h, w] = np.prod(padded_image[h : h + _m, w : w + _n])**(1 / (_m**2))
+
+    denoised_image = np.uint8(geometric_mean_image)
 
     return denoised_image
