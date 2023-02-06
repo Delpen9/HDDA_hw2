@@ -196,6 +196,8 @@ if __name__ == '__main__':
                 fifteenth_figure.add_image(image_path, width = '120px')
                 fifteenth_figure.add_caption('Contraharmonic mean filter denoised J2 and Q = -1.')
 
+        doc.append(NewPage())
+
         # Q = 0
         with doc.create(Subsection('Contraharmonic Mean De-noise: J1 and Q = 0')):
             doc.append('Images with contraharmonic mean filter denoise on J1 and Q = 0:')
@@ -233,6 +235,8 @@ if __name__ == '__main__':
             with doc.create(Figure(position = 'h!')) as fifteenth_figure:
                 fifteenth_figure.add_image(image_path, width = '120px')
                 fifteenth_figure.add_caption('Contraharmonic mean filter denoised J2 and Q = 1.')    
+
+        doc.append(NewPage())
 
         # Minimum
         with doc.create(Subsection('Minimum De-noise: J1')):
